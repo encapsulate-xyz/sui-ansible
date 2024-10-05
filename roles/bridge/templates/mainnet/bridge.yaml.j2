@@ -1,0 +1,38 @@
+---
+server-listen-port: {{ bridge_server_listen_port }}
+metrics-port: {{ bridge_metrics_port }}
+bridge-authority-key-path: { { bridge_authority_key_path }}
+run-client: true
+db-path: { { bridge_db_path } }
+approved-governance-actions:
+    - AddTokensOnSuiAction:
+          nonce: 0
+          chain_id: SuiMainnet
+          native: false
+          token_ids:
+              - 2
+          token_type_names:
+              - struct:
+                    address: 0xd0e89b2af5e4910726fbcd8b8dd37bb79b29e5f83f7491bca830e94f7f226d29
+                    module: eth
+                    name: ETH
+                    type_args: [ ]
+          token_prices:
+              - 260000000000
+    - LimitUpdateAction:
+          nonce: 0
+          chain_id: SuiMainnet
+          sending_chain_id: EthMainnet
+          new_usd_limit: 800000000000000
+sui:
+    sui-rpc-url: {{ bridge_sui_rpc_url }}
+    sui-bridge-chain-id: 0
+    bridge-client-key-path: { { bridge_client_key_path } }
+eth:
+    eth-rpc-url: { { bridge_eth_rpc_url } }
+    eth-bridge-proxy-address: 0xda3bD1fE1973470312db04551B65f401Bc8a92fD
+    eth-bridge-chain-id: 10
+    eth-contracts-start-block-fallback: 20811249
+metrics:
+    push-interval-seconds: 60
+    push-url: https://metrics-proxy.{{ env }}.sui.io:8443/publish/metrics
