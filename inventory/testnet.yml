@@ -6,7 +6,7 @@ all:
   children:
     sui:
       hosts:
-        5.78.92.20:
+        bridge.sui.mainnet.encapsulate.xyz:
           type: bridge
         validator.sui.mainnet.encapsulate.xyz:
           type: validator
