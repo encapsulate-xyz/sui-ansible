@@ -10,6 +10,9 @@ ExecStart={{ bridge_bin_dir }}/{{ service_identifier }} --config-path {{ bridge_
 Restart=always
 RestartSec=4
 LimitNOFILE=65536
+MemoryLimit=64G
+StandardOutput=append:{{ bridge_log_file_path }}
+StandardError=inherit
 
 [Install]
 WantedBy=multi-user.target

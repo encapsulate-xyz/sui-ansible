@@ -16,3 +16,11 @@
     group: "{{ service_identifier }}"
     mode: "0755"
   loop: "{{ directories }}"
+
+- name: Create log file for the service
+  ansible.builtin.file:
+    path: "{{ log_file_path }}"
+    state: touch
+    owner: "{{ service_identifier }}"
+    group: "{{ service_identifier }}"
+    mode: "0644"

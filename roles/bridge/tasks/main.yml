@@ -4,6 +4,7 @@
   vars:
     home: "{{ bridge_home_dir }}"
     directories: "{{ bridge_directories }}"
+    log_file_path: "{{ bridge_log_file_path }}"
 
 - name: Copy bridge configuration file
   ansible.builtin.template:
@@ -31,25 +32,27 @@
         secret_destination_path: "{{ bridge_client_key_path }}"
         secret_type: key
 
-- name: Fetch the service binary
-  ansible.builtin.get_url:
-    url: "{{ sui.bridge.source_url }}/{{ sui.bridge.version }}/{{ bridge_service_default_binary_name }}"
-    dest: "{{ bridge_bin_dir }}/{{ service_identifier }}"
-    owner: root
-    group: root
-    force: true
-    mode: "0755"
-  notify:
-    - Restart service
+- name: Fetch binaries
+  block:
+    - name: Fetch the service binary
+      ansible.builtin.get_url:
+        url: "{{ sui.bridge.source_url }}/{{ sui.bridge.version }}/{{ bridge_service_default_binary_name }}"
+        dest: "{{ bridge_bin_dir }}/{{ service_identifier }}"
+        owner: root
+        group: root
+        force: true
+        mode: "0755"
+      notify:
+        - Restart service
 
-- name: Fetch the cli binary
-  ansible.builtin.get_url:
-    url: "{{ sui.bridge.source_url }}/{{ sui.bridge.version }}/{{ bridge_cli_default_binary_name }}"
-    dest: "{{ bridge_bin_dir }}/{{ bridge_cli_default_binary_name }}"
-    owner: root
-    group: root
-    force: true
-    mode: "0755"
+    - name: Fetch the cli binary
+      ansible.builtin.get_url:
+        url: "{{ sui.bridge.source_url }}/{{ sui.bridge.version }}/{{ bridge_cli_default_binary_name }}"
+        dest: "{{ bridge_bin_dir }}/{{ bridge_cli_default_binary_name }}"
+        owner: root
+        group: root
+        force: true
+        mode: "0755"
 
 - name: Copy sui-node systemd service file
   ansible.builtin.template:

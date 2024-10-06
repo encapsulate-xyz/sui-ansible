@@ -22,3 +22,17 @@
   ansible.builtin.pause:
     prompt: Press 'Enter' to continue with the deployment or Ctrl+C to cancel
   when: type == vars['node_type']
+
+- name: Please confirm again
+  ansible.builtin.debug:
+    msg:
+      - "Deploying to Host: {{ inventory_hostname }}"
+      - "Project: {{ project }}"
+      - "Environment: {{ env }}"
+      - "Type: {{ type }}"
+  when: type == vars['node_type']
+
+- name: Confirm deployment details
+  ansible.builtin.pause:
+    prompt: Press 'Enter' to continue with the deployment or Ctrl+C to cancel
+  when: type == vars['node_type']
