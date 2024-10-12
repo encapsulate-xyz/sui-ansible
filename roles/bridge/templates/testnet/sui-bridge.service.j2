@@ -3,6 +3,7 @@ Description=Sui Bridge
 
 [Service]
 User={{ service_identifier }}
+Group={{ service_identifier }}
 WorkingDirectory={{ bridge_home_dir }}
 Environment=RUST_BACKTRACE=1
 Environment=RUST_LOG=info,sui_bridge=debug
