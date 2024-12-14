@@ -1,0 +1,14 @@
+---
+# maintains file name, binary names, and anything which is not a diretcory or path
+
+# config file names
+node_config_file_name: config.yaml
+node_genesis_file_name: genesis.blob
+
+# keys file names
+node_protocol_key_file_name: protocol.key
+node_worker_key_file_name: worker.key
+node_network_key_file_name: network.key
+
+# binary names
+node_service_default_binary_name: sui-node

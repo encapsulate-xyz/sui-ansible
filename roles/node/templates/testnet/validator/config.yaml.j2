@@ -1,0 +1,100 @@
+---
+protocol-key-pair:
+  path: "{{ node_protocol_key_path }}"
+worker-key-pair:
+  path: "{{ node_worker_key_path }}"
+network-key-pair:
+  path: "{{ node_network_key_path }}"
+db-path: "{{ node_authorities_data_dir }}"
+network-address: /ip4/0.0.0.0/tcp/8080/http
+json-rpc-address: 0.0.0.0:9000
+metrics-address: 0.0.0.0:{{ sui.validator.ports.metrics_port }}
+admin-interface-port: {{ sui.validator.ports.admin_interface_port }}
+consensus-config:
+  address: /ip4/127.0.0.1/tcp/8083/http
+  db-path: "{{ node_consensus_data_dir }}"
+  internal-worker-address: null
+  #  timeout-secs: 60
+  narwhal-config:
+    header_num_of_batches_threshold: 32
+    max_header_num_of_batches: 1000
+    max_header_delay: 2000ms
+    gc_depth: 50
+    sync_retry_delay: 5000ms
+    sync_retry_nodes: 3
+    batch_size: 500000
+    max_batch_delay: 100ms
+    block_synchronizer:
+      range_synchronize_timeout: 30000ms
+      certificates_synchronize_timeout: 30000ms
+      payload_synchronize_timeout: 30000ms
+      payload_availability_timeout: 30000ms
+      handler_certificate_deliver_timeout: 30000ms
+    consensus_api_grpc:
+      socket_addr: /ip4/127.0.0.1/tcp/44579/http
+      get_collections_timeout: 5000ms
+      remove_collections_timeout: 5000ms
+    max_concurrent_requests: 500000
+    prometheus_metrics:
+      socket_addr: /ip4/127.0.0.1/tcp/33291/http
+    network_admin_server:
+      primary_network_admin_server_port: 41303
+      worker_network_admin_server_base_port: 41669
+enable-event-processing: false
+p2p-config:
+  listen-address: 0.0.0.0:8084
+  external-address: /dns/{{ sui.validator.external_address }}/udp/8084
+  seed-peers:
+    - address: /dns/ewr-tnt-ssfn-00.testnet.sui.io/udp/8084
+      peer-id: df8a8d128051c249e224f95fcc463f518a0ebed8986bbdcc11ed751181fecd38
+    - address: /dns/lax-tnt-ssfn-00.testnet.sui.io/udp/8084
+      peer-id: f9a72a0a6c17eed09c27898eab389add704777c03e135846da2428f516a0c11d
+    - address: /dns/lhr-tnt-ssfn-00.testnet.sui.io/udp/8084
+      peer-id: 9393d6056bb9c9d8475a3cf3525c747257f17c6a698a7062cbbd1875bc6ef71e
+    - address: /dns/mel-tnt-ssfn-00.testnet.sui.io/udp/8084
+      peer-id: c88742f46e66a11cb8c84aca488065661401ef66f726cb9afeb8a5786d83456e
+  anemo-config:
+    max-concurrent-connections: 0
+genesis:
+  genesis-file-location: "{{ node_genesis_file_path }}"
+authority-store-pruning-config:
+  num-latest-epoch-dbs-to-retain: 3
+  epoch-db-pruning-period-secs: 3600
+  num-epochs-to-retain: 1
+  max-checkpoints-in-batch: 5
+  max-transactions-in-batch: 1000
+  use-range-deletion: true
+  num-epochs-to-retain-for-checkpoints: 2
+  periodic-compaction-threshold-days: 1
+state-archive-read-config:
+  - object-store-config:
+      object-store: "S3"
+      # Use mysten-testnet-archives for testnet 
+      # Use mysten-mainnet-archives for mainnet
+      bucket: "mysten-testnet-archives"
+      # Use your AWS account access key id
+      aws-access-key-id: "{{ vault[env].validator.aws_access_key }}"
+      # Use your AWS account secret access key
+      aws-secret-access-key: "{{ vault[env].validator.aws_secret_key }}"
+      aws-region: "us-west-2"
+      object-store-connection-limit: 20
+    # How many objects to read ahead when catching up  
+    concurrency: 5
+    # Whether to prune local state based on latest checkpoint in archive.
+    # This should stay false for most use cases
+    use-for-pruning-watermark: false
+end-of-epoch-broadcast-channel-capacity: 128
+checkpoint-executor-config:
+  checkpoint-execution-max-concurrency: 200
+  local-execution-timeout-sec: 10
+db-checkpoint-config:
+  perform-db-checkpoints-at-epoch-end: false
+indirect-objects-threshold: 18446744073709551615
+metrics:
+  push-interval-seconds: 60
+  push-url: https://metrics-proxy.testnet.sui.io:8443/publish/metrics
+transaction-deny-config:
+  package_deny_list:
+    - "0x8beaa2b37ebc39d8816eacc7a27ccb490cbde7688c9c111f6179cb9ebdcf0c5d"
+    - "0x17823a1dda6cb65730c0a7ea2c24dc44ff2c23adfcb1654564f21c3522e4f74c"
+    - "0x235128b04993e626ec89a39ee699de345651d771863841f9d361997c30537dfa"
