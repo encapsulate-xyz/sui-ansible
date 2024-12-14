@@ -1,0 +1,27 @@
+---
+node_ufw_rules:
+  validator:
+    - port: "{{ admin_interface_port }}"
+      proto: tcp
+      rule: allow
+      from: any
+      comment: admin_interface_port
+
+    - port: "{{ metrics_port }}"
+      proto: tcp
+      rule: allow
+      from: "{{ monitor_server_dns }}"
+      comment: metrics_port
+
+  fullnode:
+    - port: "{{ json_rpc_port }}"
+      proto: tcp
+      rule: allow
+      from: any
+      comment: json_rpc_port
+
+    - port: "{{ metrics_port }}"
+      proto: tcp
+      rule: allow
+      from: "{{ monitor_server_dns }}"
+      comment: metrics_port

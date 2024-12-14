@@ -1,5 +1,5 @@
 ---
-# maintains testnet inventory grouped by project names
+# maintains mainnet inventory grouped by project names
 all:
   vars:
     env: mainnet

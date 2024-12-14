@@ -6,9 +6,9 @@ all:
   children:
     sui:
       hosts:
-        5.78.92.20:
+        bridge.sui.testnet.encapsulate.xyz:
           type: bridge
-        validator.sui.mainnet.encapsulate.xyz:
+        validator.sui.testnet.encapsulate.xyz:
           type: validator
-        fullnode.sui.mainnet.encapsulate.xyz:
+        fullnode.sui.testnet.encapsulate.xyz:
           type: fullnode
