@@ -1,0 +1,18 @@
+[Unit]
+Description=Sui Bridge
+
+[Service]
+User={{ service_identifier }}
+WorkingDirectory={{ bridge_home_dir }}
+Environment=RUST_BACKTRACE=1
+Environment=RUST_LOG=info,sui_bridge=debug
+ExecStart={{ bridge_bin_dir }}/{{ service_identifier }} --config-path {{ bridge_config_file_path }}
+Restart=always
+RestartSec=4
+LimitNOFILE=65536
+MemoryLimit=64G
+StandardOutput=append:{{ bridge_log_file_path }}
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target
