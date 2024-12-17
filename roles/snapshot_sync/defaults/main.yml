@@ -1,0 +1,11 @@
+---
+snapshot_sync_home_dir: /opt/{{ service_identifier }}
+
+snapshot_sync_bin_dir: "{{ snapshot_sync_home_dir }}/bin"
+snapshot_sync_config_dir: "{{ snapshot_sync_home_dir }}/config"
+snapshot_sync_data_dir: "{{ snapshot_sync_home_dir }}/data"
+
+snapshot_sync_authorities_data_dir: "{{ snapshot_sync_data_dir }}/authorities_db"
+snapshot_sync_consensus_data_dir: "{{ snapshot_sync_data_dir }}/consensus_db"
+
+snapshot_sync_genesis_file_path: "{{ snapshot_sync_config_dir }}/{{ snapshot_sync_genesis_file_name }}"
