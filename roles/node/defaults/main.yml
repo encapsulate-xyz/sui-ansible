@@ -25,6 +25,8 @@ node_config_file_path: "{{ node_config_dir }}/{{ node_config_file_name }}"
 node_genesis_file_path: "{{ node_config_dir }}/{{ node_genesis_file_name }}"
 node_log_file_path: "{{ node_log_dir }}/{{ service_identifier }}.log"
 
+node_environment_general_file_path: "{{ node_env_dir }}/{{ node_environment_general_file_name }}"
+
 node_protocol_key_path: "{{ node_key_pairs_dir }}/{{ node_protocol_key_file_name }}"
 node_worker_key_path: "{{ node_key_pairs_dir }}/{{ node_worker_key_file_name }}"
 node_network_key_path: "{{ node_key_pairs_dir }}/{{ node_network_key_file_name }}"
