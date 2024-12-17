@@ -73,9 +73,9 @@ state-archive-read-config:
       # Use mysten-mainnet-archives for mainnet
       bucket: "mysten-testnet-archives"
       # Use your AWS account access key id
-      aws-access-key-id: "{{ vault[env].validator.aws_access_key }}"
+      aws-access-key-id: "{{ vault[env].external.aws_access_key }}"
       # Use your AWS account secret access key
-      aws-secret-access-key: "{{ vault[env].validator.aws_secret_key }}"
+      aws-secret-access-key: "{{ vault[env].external.aws_secret_key }}"
       aws-region: "us-west-2"
       object-store-connection-limit: 20
     # How many objects to read ahead when catching up  
