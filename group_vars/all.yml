@@ -20,11 +20,14 @@ sui:
     ports:
       admin_interface_port: 1337
       metrics_port: 9184
+      listen_address_port: 8084
+      json_rpc_port: 9000
   fullnode:
     source_url: https://releases.sui.io
     ports:
       metrics_port: 9184
       json_rpc_port: 9000
+      listen_address_port: 8084
   bridge:
     source_url: https://releases.sui.io
     ports:

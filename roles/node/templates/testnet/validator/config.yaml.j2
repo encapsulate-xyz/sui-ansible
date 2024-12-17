@@ -7,7 +7,7 @@ network-key-pair:
   path: "{{ node_network_key_path }}"
 db-path: "{{ node_authorities_data_dir }}"
 network-address: /ip4/0.0.0.0/tcp/8080/http
-json-rpc-address: 0.0.0.0:9000
+json-rpc-address: 0.0.0.0:{{ sui.validator.ports.json_rpc_port }}
 metrics-address: 0.0.0.0:{{ sui.validator.ports.metrics_port }}
 admin-interface-port: {{ sui.validator.ports.admin_interface_port }}
 consensus-config:
@@ -42,8 +42,8 @@ consensus-config:
       worker_network_admin_server_base_port: 41669
 enable-event-processing: false
 p2p-config:
-  listen-address: 0.0.0.0:8084
-  external-address: /dns/{{ sui.validator.external_address }}/udp/8084
+  listen-address: 0.0.0.0:{{ sui.validator.ports.listen_address_port }}
+  external-address: /dns/{{ sui.validator.external_address }}/udp/{{ sui.validator.ports.listen_address_port }}
   seed-peers:
     - address: /dns/ewr-tnt-ssfn-00.testnet.sui.io/udp/8084
       peer-id: df8a8d128051c249e224f95fcc463f518a0ebed8986bbdcc11ed751181fecd38

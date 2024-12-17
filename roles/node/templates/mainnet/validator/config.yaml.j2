@@ -7,7 +7,7 @@ network-key-pair:
   path: "{{ node_network_key_path }}"
 db-path: "{{ node_authorities_data_dir }}"
 network-address: /ip4/0.0.0.0/tcp/8080/http
-json-rpc-address: 0.0.0.0:9000
+json-rpc-address: 0.0.0.0:{{ sui.validator.ports.json_rpc_port }}
 metrics-address: 0.0.0.0:{{ sui.validator.ports.metrics_port }}
 admin-interface-port: {{ sui.validator.ports.admin_interface_port }}
 consensus-config:
@@ -62,8 +62,8 @@ p2p-config:
       peer-id: c619a5e0f8f36eac45118c1f8bda28f0f508e2839042781f1d4a9818043f732c
     - address: /dns/lhr-01.mainnet.sui.io/udp/8084
       peer-id: 53dcedf250f73b1ec83250614498947db00d17c0181020fcdb7b6db12afbc175
-  listen-address: 0.0.0.0:8084
-  external-address: /dns/{{ sui.validator.external_address }}/udp/8084
+  listen-address: 0.0.0.0:{{ sui.validator.ports.listen_address_port }}
+  external-address: /dns/{{ sui.validator.external_address }}/udp/{{ sui.validator.ports.listen_address_port }}
   anemo-config:
     max-concurrent-connections: 0
 genesis:

@@ -5,7 +5,7 @@ db-path: "{{ node_data_dir }}"
 network-address: "/dns/localhost/tcp/8080/http"
 metrics-address: "0.0.0.0:{{ sui.fullnode.ports.metrics_port }}"
 # this address is also used for web socket connections
-json-rpc-address: "0.0.0.0:9000"
+json-rpc-address: "0.0.0.0:{{ sui.fullnode.ports.json_rpc_port }}"
 enable-event-processing: true
 
 genesis:
