@@ -1,0 +1,4 @@
+---
+snapshot_sync_genesis_file_name: genesis.blob
+
+snapshot_sync_tool_default_binary_name: sui-tool

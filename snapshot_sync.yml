@@ -1,5 +1,5 @@
 ---
-- name: Set up sui node
+- name: Snapshot Sync sui node
   hosts: all
   become: true
   gather_facts: true
@@ -16,16 +16,14 @@
       block:
         - name: Include environment setup tasks
           ansible.builtin.include_tasks: tasks/setup_environment.yml
-        - name: Include dependencies setup tasks
-          ansible.builtin.include_tasks: tasks/setup_dependencies.yml
 
   tasks:
-    - name: Run node role
+    - name: Run snapshot_sync role
       when: type in allowed_node_types
       block:
         - name: Include common handlers
           ansible.builtin.include_role:
             name: common
-        - name: Include node role
+        - name: Include snapshot_sync role
           ansible.builtin.include_role:
-            name: node
+            name: snapshot_sync

@@ -111,6 +111,7 @@ vault:
       eth:
         rpc_url:
     validator:
+    external:
       aws_access_key:
       aws_secret_key:
 ```
