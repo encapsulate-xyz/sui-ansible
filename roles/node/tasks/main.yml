@@ -74,7 +74,7 @@
     - name: Fetch the cli binary
       ansible.builtin.get_url:
         url: "{{ sui[type].source_url }}/{{ sui[type].version }}/{{ node_cli_default_binary_name }}"
-        dest: "{{ node_bin_dir }}/{{ node_cli_binary_name }}"
+        dest: "{{ node_bin_dir }}/{{ node_cli_default_binary_name }}"
         owner: root
         group: root
         force: true
