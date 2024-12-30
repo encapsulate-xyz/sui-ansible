@@ -1,38 +1,80 @@
 ---
 node_ufw_rules:
   validator:
-    - port: "{{ listen_address_port }}"
+    - port: "{{ sui.validator.ports.listen_address_port }}"
       proto: udp
       rule: allow
       from: any
       comment: listen_address_port
     
-    - port: "{{ json_rpc_port }}"
+    - port: 8080
       proto: tcp
       rule: allow
       from: any
-      comment: json_rpc_port
+      comment: 	protocol_transaction_interface_port
 
-    - port: "{{ metrics_port }}"
+    - port: 8081
+      proto: tcp
+      rule: allow
+      from: any
+      comment: 	consensus_interface_port
+
+    - port: 8081
+      proto: udp
+      rule: allow
+      from: any
+      comment: 	narwhal_primary_interface_port
+
+    - port: 8082
+      proto: udo
+      rule: allow
+      from: any
+      comment: 	narwhal_primary_interface_port
+
+    - port: "{{ sui.validator.ports.metrics_port }}"
       proto: tcp
       rule: allow
       from: "{{ monitor_server_dns }}"
       comment: metrics_port
 
   fullnode:
-    - port: "{{ listen_address_port }}"
+    - port: "{{ sui.validator.ports.listen_address_port }}"
       proto: udp
       rule: allow
       from: any
       comment: listen_address_port
 
-    - port: "{{ json_rpc_port }}"
+    - port: 8080
+      proto: tcp
+      rule: allow
+      from: any
+      comment: 	protocol_transaction_interface_port
+
+    - port: 8081
+      proto: tcp
+      rule: allow
+      from: any
+      comment: 	consensus_interface_port
+
+    - port: 8081
+      proto: udp
+      rule: allow
+      from: any
+      comment: 	narwhal_primary_interface_port
+
+    - port: 8082
+      proto: udo
+      rule: allow
+      from: any
+      comment: 	narwhal_primary_interface_port
+
+    - port: "{{ sui.validator.ports.json_rpc_port }}"
       proto: tcp
       rule: allow
       from: any
       comment: json_rpc_port
 
-    - port: "{{ metrics_port }}"
+    - port: "{{ sui.validator.ports.metrics_port }}"
       proto: tcp
       rule: allow
       from: "{{ monitor_server_dns }}"
