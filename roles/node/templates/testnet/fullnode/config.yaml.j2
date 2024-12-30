@@ -53,3 +53,19 @@ p2p-config:
       peer-id: 9393d6056bb9c9d8475a3cf3525c747257f17c6a698a7062cbbd1875bc6ef71e
     - address: /dns/mel-tnt-ssfn-00.testnet.sui.io/udp/8084
       peer-id: c88742f46e66a11cb8c84aca488065661401ef66f726cb9afeb8a5786d83456e
+
+policy-config:
+  connection-blocklist-ttl-sec: 30
+  spam-policy-type: 
+    FreqThreshold:
+      client-threshold: 500
+      window-size-secs: 5
+      update-interval-secs: 1
+  error-policy-type: 
+    FreqThreshold:
+      client-threshold: 50
+      window-size-secs: 5
+      update-interval-secs: 1
+  channel-capacity: 6000
+  spam-sample-rate: 1
+  dry-run: true
