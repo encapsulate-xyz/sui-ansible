@@ -42,6 +42,7 @@
       --path {{ snapshot_sync_authorities_data_dir }}/live
       --num-parallel-downloads 50
       --no-sign-request
+  changed_when: false
 
 - name: Set ownership of authorities data directory
   ansible.builtin.file:
