@@ -12,3 +12,7 @@ node_network_key_file_name: network.key
 
 # binary names
 node_service_default_binary_name: sui-node
+node_cli_default_binary_name: sui
+
+# Environment file names
+node_environment_general_file_name: "{{ service_identifier }}.env"

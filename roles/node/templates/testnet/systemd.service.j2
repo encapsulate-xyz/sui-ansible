@@ -4,8 +4,7 @@ Description=Sui node
 [Service]
 User={{ service_identifier }}
 WorkingDirectory={{ node_home_dir }}
-Environment=RUST_BACKTRACE=1
-Environment=RUST_LOG=info,sui_core=debug,narwhal=debug,consensus=debug,jsonrpsee=error
+EnvironmentFile={{ node_environment_general_file_path }}
 ExecStart={{ node_bin_dir }}/{{ service_identifier }} --config-path {{ node_config_file_path }}
 Restart=always
 RestartSec=4

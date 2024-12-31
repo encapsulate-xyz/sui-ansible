@@ -1,11 +1,11 @@
 # Update this value to the location you want Sui to store its database
-db-path: "{{ node_data_dir }}"
+db-path: "{{ node_authorities_data_dir }}"
 
 # For ipv4, update this to "/ip4/X.X.X.X/tcp/8080/http"
-network-address: "/dns/localhost/tcp/8080/http"
+network-address: "/dns/localhost/tcp/{{ sui.fullnode.ports.network_address_port }}/http"
 metrics-address: "0.0.0.0:{{ sui.fullnode.ports.metrics_port }}"
 # this address is also used for web socket connections
-json-rpc-address: "0.0.0.0:9000"
+json-rpc-address: "0.0.0.0:{{ sui.fullnode.ports.json_rpc_port }}"
 enable-event-processing: true
 
 genesis:
@@ -53,3 +53,19 @@ p2p-config:
       peer-id: 9393d6056bb9c9d8475a3cf3525c747257f17c6a698a7062cbbd1875bc6ef71e
     - address: /dns/mel-tnt-ssfn-00.testnet.sui.io/udp/8084
       peer-id: c88742f46e66a11cb8c84aca488065661401ef66f726cb9afeb8a5786d83456e
+
+policy-config:
+  connection-blocklist-ttl-sec: 30
+  spam-policy-type: 
+    FreqThreshold:
+      client-threshold: 500
+      window-size-secs: 5
+      update-interval-secs: 1
+  error-policy-type: 
+    FreqThreshold:
+      client-threshold: 50
+      window-size-secs: 5
+      update-interval-secs: 1
+  channel-capacity: 6000
+  spam-sample-rate: 1
+  dry-run: true

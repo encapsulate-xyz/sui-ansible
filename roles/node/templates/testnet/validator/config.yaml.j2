@@ -6,12 +6,12 @@ worker-key-pair:
 network-key-pair:
   path: "{{ node_network_key_path }}"
 db-path: "{{ node_authorities_data_dir }}"
-network-address: /ip4/0.0.0.0/tcp/8080/http
-json-rpc-address: 0.0.0.0:9000
+network-address: /ip4/0.0.0.0/tcp/{{ sui.fullnode.ports.network_address_port }}/http
+json-rpc-address: 0.0.0.0:{{ sui.validator.ports.json_rpc_port }}
 metrics-address: 0.0.0.0:{{ sui.validator.ports.metrics_port }}
 admin-interface-port: {{ sui.validator.ports.admin_interface_port }}
 consensus-config:
-  address: /ip4/127.0.0.1/tcp/8083/http
+  address: /ip4/127.0.0.1/tcp/{{ sui.fullnode.ports.consensus_address_port }}/http
   db-path: "{{ node_consensus_data_dir }}"
   internal-worker-address: null
   #  timeout-secs: 60
@@ -42,8 +42,8 @@ consensus-config:
       worker_network_admin_server_base_port: 41669
 enable-event-processing: false
 p2p-config:
-  listen-address: 0.0.0.0:8084
-  external-address: /dns/{{ sui.validator.external_address }}/udp/8084
+  listen-address: 0.0.0.0:{{ sui.validator.ports.p2p_port }}
+  external-address: /dns/{{ sui.validator.external_address }}/udp/{{ sui.validator.ports.p2p_port }}
   seed-peers:
     - address: /dns/ewr-tnt-ssfn-00.testnet.sui.io/udp/8084
       peer-id: df8a8d128051c249e224f95fcc463f518a0ebed8986bbdcc11ed751181fecd38
@@ -73,9 +73,9 @@ state-archive-read-config:
       # Use mysten-mainnet-archives for mainnet
       bucket: "mysten-testnet-archives"
       # Use your AWS account access key id
-      aws-access-key-id: "{{ vault[env].validator.aws_access_key }}"
+      aws-access-key-id: "{{ vault[env].external.aws_access_key }}"
       # Use your AWS account secret access key
-      aws-secret-access-key: "{{ vault[env].validator.aws_secret_key }}"
+      aws-secret-access-key: "{{ vault[env].external.aws_secret_key }}"
       aws-region: "us-west-2"
       object-store-connection-limit: 20
     # How many objects to read ahead when catching up  
@@ -98,3 +98,19 @@ transaction-deny-config:
     - "0x8beaa2b37ebc39d8816eacc7a27ccb490cbde7688c9c111f6179cb9ebdcf0c5d"
     - "0x17823a1dda6cb65730c0a7ea2c24dc44ff2c23adfcb1654564f21c3522e4f74c"
     - "0x235128b04993e626ec89a39ee699de345651d771863841f9d361997c30537dfa"
+
+policy-config:
+  connection-blocklist-ttl-sec: 30
+  spam-policy-type: 
+    FreqThreshold:
+      client-threshold: 500
+      window-size-secs: 5
+      update-interval-secs: 1
+  error-policy-type: 
+    FreqThreshold:
+      client-threshold: 50
+      window-size-secs: 5
+      update-interval-secs: 1
+  channel-capacity: 6000
+  spam-sample-rate: 1
+  dry-run: true
