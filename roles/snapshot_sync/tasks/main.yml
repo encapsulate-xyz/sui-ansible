@@ -30,7 +30,6 @@
     mode: "0755"
   loop:
     - "{{ snapshot_sync_authorities_data_dir }}"
-    - "{{ snapshot_sync_authorities_data_dir }}/live"
     - "{{ snapshot_sync_consensus_data_dir }}"
 
 - name: Download sui formal snapshot using sui-tool
@@ -39,7 +38,7 @@
       {{ snapshot_sync_bin_dir }}/{{ snapshot_sync_tool_default_binary_name }} download-formal-snapshot --latest
       --genesis {{ snapshot_sync_genesis_file_path }}
       --network {{ env }}
-      --path {{ snapshot_sync_authorities_data_dir }}/live
+      --path {{ snapshot_sync_authorities_data_dir }}
       --num-parallel-downloads 50
       --no-sign-request
   changed_when: false
