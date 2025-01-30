@@ -2,9 +2,9 @@
 # maintains versions and can overwrite all.yml
 sui:
   validator:
-    version: fea2f2707d4a8c545879da8df76ee5392fa63364
+    version: 5612ba3005e94b1eaf2dc0dcdbddb0e45668a6fc
     external_address:
   fullnode:
-    version: fea2f2707d4a8c545879da8df76ee5392fa63364
+    version: 5612ba3005e94b1eaf2dc0dcdbddb0e45668a6fc
   bridge:
-    version: fea2f2707d4a8c545879da8df76ee5392fa63364
+    version: 5612ba3005e94b1eaf2dc0dcdbddb0e45668a6fc
