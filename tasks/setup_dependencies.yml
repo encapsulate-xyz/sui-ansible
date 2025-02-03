@@ -10,7 +10,6 @@
     - libpq-dev
 
 - name: Configure sysctl settings for node
-  become: true
   copy:
     dest: "/etc/sysctl.d/100-{{ service_identifier }}.conf"
     content: |
@@ -23,6 +22,5 @@
     mode: "0644"
 
 - name: Apply sysctl settings
-  become: true
   command: sysctl --system
   changed_when: true
