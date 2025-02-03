@@ -6,12 +6,12 @@ worker-key-pair:
 network-key-pair:
   path: "{{ node_network_key_path }}"
 db-path: "{{ node_authorities_data_dir }}"
-network-address: /ip4/0.0.0.0/tcp/{{ sui.fullnode.ports.network_address_port }}/http
+network-address: /ip4/0.0.0.0/tcp/{{ sui.validator.ports.network_address_port }}/http
 json-rpc-address: 0.0.0.0:{{ sui.validator.ports.json_rpc_port }}
 metrics-address: 0.0.0.0:{{ sui.validator.ports.metrics_port }}
 admin-interface-port: {{ sui.validator.ports.admin_interface_port }}
 consensus-config:
-  address: /ip4/127.0.0.1/tcp/{{ sui.fullnode.ports.consensus_address_port }}/http
+  address: /ip4/127.0.0.1/tcp/{{ sui.validator.ports.consensus_address_port }}/http
   db-path: "{{ node_consensus_data_dir }}"
   internal-worker-address: null
   narwhal-config:

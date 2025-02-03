@@ -5,25 +5,42 @@ bridge-authority-key-path: { { bridge_authority_key_path }}
 run-client: true
 db-path: { { bridge_db_path } }
 approved-governance-actions:
-    - AddTokensOnSuiAction:
-          nonce: 0
-          chain_id: SuiMainnet
-          native: false
-          token_ids:
-              - 2
-          token_type_names:
-              - struct:
-                    address: 0xd0e89b2af5e4910726fbcd8b8dd37bb79b29e5f83f7491bca830e94f7f226d29
-                    module: eth
-                    name: ETH
-                    type_args: [ ]
-          token_prices:
-              - 260000000000
-    - LimitUpdateAction:
-          nonce: 0
-          chain_id: SuiMainnet
-          sending_chain_id: EthMainnet
-          new_usd_limit: 800000000000000
+  - LimitUpdateAction:
+      nonce: 0
+      chain_id: EthMainnet
+      sending_chain_id: SuiMainnet
+      new_usd_limit: 700000000000000
+  - LimitUpdateAction:
+      nonce: 2
+      chain_id: SuiMainnet
+      sending_chain_id: EthMainnet
+      new_usd_limit: 1600000000000000
+  - AddTokensOnSuiAction:
+      nonce: 2
+      chain_id: SuiMainnet
+      native: false
+      token_ids:
+        - 1
+      token_type_names:
+        - struct:
+            address: 0xaafb102dd0902f5055cadecd687fb5b71ca82ef0e0285d90afde828ec58ca96b
+            module: btc
+            name: BTC
+            type_args: []
+      token_prices:
+        - 10100000000000
+  - AddTokensOnEvmAction:
+      nonce: 1
+      chain_id: EthMainnet
+      native: true
+      token_ids:
+        - 1
+      token_addresses:
+        - 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599
+      token_sui_decimals:
+        - 8
+      token_prices:
+        - 10100000000000
 sui:
     sui-rpc-url: {{ bridge_sui_rpc_url }}
     sui-bridge-chain-id: 0
