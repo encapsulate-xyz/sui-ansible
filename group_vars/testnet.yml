@@ -2,9 +2,9 @@
 # maintains versions and can overwrite all.yml
 sui:
   validator:
-    version: 5612ba3005e94b1eaf2dc0dcdbddb0e45668a6fc
+    version: 37994a3427591f1f58b3062ec0f0572666af8fb0
     external_address: sui-testnet.kingsuper.services
   fullnode:
-    version: 5612ba3005e94b1eaf2dc0dcdbddb0e45668a6fc
+    version: 37994a3427591f1f58b3062ec0f0572666af8fb0
   bridge:
-    version: 5612ba3005e94b1eaf2dc0dcdbddb0e45668a6fc
+    version: 37994a3427591f1f58b3062ec0f0572666af8fb0
