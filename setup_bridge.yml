@@ -2,7 +2,7 @@
 - name: Set up sui bridge node
   hosts: all
   become: true
-  gather_facts: false
+  gather_facts: true
   vars:
     allowed_node_types: [bridge]
   vars_files:
