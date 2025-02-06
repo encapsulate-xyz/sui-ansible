@@ -2,7 +2,7 @@
 server-listen-port: {{ sui.bridge.ports.server_listen_port }}
 metrics-port: {{ sui.bridge.ports.metrics_port }}
 bridge-authority-key-path: {{ bridge_authority_key_path }}
-run-client: true
+run-client: false
 db-path: {{ bridge_data_dir }}
 approved-governance-actions:
     - LimitUpdateAction:
