@@ -6,7 +6,7 @@ User={{ service_identifier }}
 WorkingDirectory={{ bridge_home_dir }}
 Environment=RUST_BACKTRACE=1
 Environment=RUST_LOG=info,sui_bridge=debug
-ExecStart={{ bridge_bin_dir }}/sui-bridge --config-path {{ bridge_config_dir }}/bridge.yaml
+ExecStart={{ bridge_bin_dir }}/sui-bridge --config-path {{ bridge_config_file_path }}
 Restart=always
 RestartSec=4
 LimitNOFILE=65536
