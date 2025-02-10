@@ -92,3 +92,18 @@ metrics:
 transaction-deny-config:
   package-deny-list:
   - "0x58156e414780a5a237db71afb0d852674eff8cd98f9572104cb79afeb4ad1e9d"
+policy-config:
+  connection-blocklist-ttl-sec: 30
+  spam-policy-type:
+    FreqThreshold:
+      client-threshold: 500
+      window-size-secs: 5
+      update-interval-secs: 1
+  error-policy-type:
+    FreqThreshold:
+      client-threshold: 50
+      window-size-secs: 5
+      update-interval-secs: 1
+  channel-capacity: 6000
+  spam-sample-rate: 1
+  dry-run: true

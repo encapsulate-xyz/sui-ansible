@@ -3,7 +3,7 @@
 sui:
   validator:
     version: 5612ba3005e94b1eaf2dc0dcdbddb0e45668a6fc
-    external_address:
+    external_address: sui-mainnet.kingsuper.services
   fullnode:
     version: 5612ba3005e94b1eaf2dc0dcdbddb0e45668a6fc
   bridge:
