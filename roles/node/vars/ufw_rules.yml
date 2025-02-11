@@ -37,6 +37,12 @@ node_ufw_rules:
       from: "{{ monitor_server_dns }}"
       comment: metrics_port
 
+    - port: "{{ sui.validator.ports.metrics_port }}"
+      proto: tcp
+      rule: allow
+      from: "{{ monitor_bot_dns }}"
+      comment: metrics_port
+
   fullnode:
     - port: "{{ sui.fullnode.ports.p2p_port }}"
       proto: udp
