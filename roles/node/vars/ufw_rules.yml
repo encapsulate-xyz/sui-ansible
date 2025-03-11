@@ -42,7 +42,7 @@ node_ufw_rules:
       rule: allow
       from: "{{ monitor_bot_dns }}"
       comment: metrics_port
-    
+
     - port: "{{ sui.validator.ports.ha_proxy_metrics_port }}"
       proto: tcp
       rule: allow
