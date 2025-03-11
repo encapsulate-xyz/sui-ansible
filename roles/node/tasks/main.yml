@@ -1,7 +1,4 @@
 ---
-- name: Include setup_haproxy task
-  ansible.builtin.include_tasks: setup_haproxy.yml
-
 - name: Include the ufw vars file
   ansible.builtin.include_vars:
     file: vars/ufw_rules.yml
