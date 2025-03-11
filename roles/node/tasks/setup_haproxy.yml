@@ -1,0 +1,29 @@
+---
+- name: Copy allowed ips file
+  ansible.builtin.copy:
+    src: "{{ env }}/allowed_ips.txt"
+    dest: "{{ node_haproxy_allowed_ips_file_path }}"
+    owner: "{{ service_identifier }}"
+    group: "{{ service_identifier }}"
+    mode: "0644"
+
+- name: Copy blocked ips file
+  ansible.builtin.copy:
+    src: "{{ env }}/blocked_ips.txt"
+    dest: "{{ node_haproxy_blocked_ips_file_path }}"
+    owner: "{{ service_identifier }}"
+    group: "{{ service_identifier }}"
+    mode: "0644"
+
+- name: Copy haproxy config file
+  ansible.builtin.template:
+    src: "{{ env }}/haproxy.cfg.j2"
+    dest: "{{ node_haproxy_config_file_path }}"
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Reload HAProxy
+  ansible.builtin.systemd:
+    name: haproxy
+    state: reloaded

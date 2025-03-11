@@ -1,6 +1,7 @@
 ---
 # maintains directories and paths
 node_home_dir: /opt/{{ service_identifier }}
+node_haproxy_home_dir: /etc/haproxy
 
 node_bin_dir: "{{ node_home_dir }}/bin"
 node_config_dir: "{{ node_home_dir }}/config"
@@ -32,3 +33,7 @@ node_environment_general_file_path: "{{ node_env_dir }}/{{ node_environment_gene
 node_protocol_key_path: "{{ node_key_pairs_dir }}/{{ node_protocol_key_file_name }}"
 node_worker_key_path: "{{ node_key_pairs_dir }}/{{ node_worker_key_file_name }}"
 node_network_key_path: "{{ node_key_pairs_dir }}/{{ node_network_key_file_name }}"
+
+node_haproxy_allowed_ips_file_path: "{{ node_haproxy_home_dir }}/{{ node_haproxy_allowed_ips_file_name }}"
+node_haproxy_blocked_ips_file_path: "{{ node_haproxy_home_dir }}/{{ node_haproxy_blocked_ips_file_name }}"
+node_haproxy_config_file_path: "{{ node_haproxy_home_dir }}/{{ node_haproxy_config_file_name }}"

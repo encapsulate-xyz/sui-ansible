@@ -100,6 +100,8 @@ transaction-deny-config:
     - "0x235128b04993e626ec89a39ee699de345651d771863841f9d361997c30537dfa"
 
 policy-config:
+  client-id-source:
+    x-forwarded-for: 1	# SHOULD CORRESPOND TO THE NUMBER OF PROXIES
   connection-blocklist-ttl-sec: 30
   spam-policy-type: 
     FreqThreshold:

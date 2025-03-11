@@ -7,11 +7,11 @@ node_ufw_rules:
       from: any
       comment: p2p_port
 
-    - port: "{{ sui.validator.ports.network_address_port }}"
+    - port: "{{ sui.validator.ports.ha_proxy_frontend_port }}"
       proto: tcp
       rule: allow
       from: any
-      comment: network_address_port
+      comment: ha_proxy_frontend_port
 
     - port: "{{ sui.validator.ports.narwhal_primary_interface_port }}"
       proto: tcp
@@ -42,6 +42,12 @@ node_ufw_rules:
       rule: allow
       from: "{{ monitor_bot_dns }}"
       comment: metrics_port
+    
+    - port: "{{ sui.validator.ports.ha_proxy_metrics_port }}"
+      proto: tcp
+      rule: allow
+      from: "{{ monitor_server_dns }}"
+      comment: ha_proxy_metrics_port
 
   fullnode:
     - port: "{{ sui.fullnode.ports.p2p_port }}"
@@ -50,11 +56,11 @@ node_ufw_rules:
       from: any
       comment: p2p_port
 
-    - port: "{{ sui.fullnode.ports.network_address_port }}"
+    - port: "{{ sui.fullnode.ports.ha_proxy_frontend_port }}"
       proto: tcp
       rule: allow
       from: any
-      comment: protocol_transaction_interface_port
+      comment: ha_proxy_frontend_port
 
     - port: "{{ sui.fullnode.ports.narwhal_primary_interface_port }}"
       proto: tcp
@@ -85,3 +91,9 @@ node_ufw_rules:
       rule: allow
       from: "{{ monitor_server_dns }}"
       comment: metrics_port
+
+    - port: "{{ sui.fullnode.ports.ha_proxy_metrics_port }}"
+      proto: tcp
+      rule: allow
+      from: "{{ monitor_server_dns }}"
+      comment: ha_proxy_metrics_port
