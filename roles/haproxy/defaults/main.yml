@@ -1,0 +1,7 @@
+---
+# maintains directories and paths
+haproxy_home_dir: /etc/haproxy
+
+haproxy_allowed_ips_file_path: "{{ haproxy_home_dir }}/{{ haproxy_allowed_ips_file_name }}"
+haproxy_blocked_ips_file_path: "{{ haproxy_home_dir }}/{{ haproxy_blocked_ips_file_name }}"
+haproxy_config_file_path: "{{ haproxy_home_dir }}/{{ haproxy_config_file_name }}"

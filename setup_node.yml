@@ -18,6 +18,9 @@
           ansible.builtin.include_tasks: tasks/setup_environment.yml
         - name: Include dependencies setup tasks
           ansible.builtin.include_tasks: tasks/setup_dependencies.yml
+        - name: Include haproxy role
+          ansible.builtin.include_role:
+            name: haproxy
 
   tasks:
     - name: Run node role
