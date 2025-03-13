@@ -4,12 +4,14 @@ sui:
   validator:
     version: 615516edb0ed55e45d599f042f9570b493ce9643
     external_address: validator.sui.testnet.encapsulate.xyz
+    # Overriding default ports to support haproxy
     ports:
       network_address_port: 8180
       ha_proxy_frontend_port: 8080
       ha_proxy_metrics_port: 1936
   fullnode:
     version: 615516edb0ed55e45d599f042f9570b493ce9643
+    # Overriding default ports to support haproxy
     ports:
       network_address_port: 8180
       ha_proxy_frontend_port: 8080
