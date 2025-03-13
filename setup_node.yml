@@ -21,6 +21,7 @@
         - name: Include haproxy role
           ansible.builtin.include_role:
             name: haproxy
+          when: env == "testnet"
 
   tasks:
     - name: Run node role

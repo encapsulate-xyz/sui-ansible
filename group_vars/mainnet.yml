@@ -4,6 +4,8 @@ sui:
   validator:
     version: 615516edb0ed55e45d599f042f9570b493ce9643
     external_address: validator.sui.mainnet.encapsulate.xyz
+    ports:
+      network_address_port: 8080
   fullnode:
     version: 615516edb0ed55e45d599f042f9570b493ce9643
   bridge:

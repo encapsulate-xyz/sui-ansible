@@ -8,7 +8,6 @@
   loop:
     - libjemalloc-dev
     - libpq-dev
-    - haproxy
 
 - name: Configure sysctl settings for node
   copy:
