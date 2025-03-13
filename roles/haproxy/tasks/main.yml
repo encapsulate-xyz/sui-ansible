@@ -1,4 +1,11 @@
 ---
+- name: Install apt packages
+  ansible.builtin.apt:
+    name: haproxy
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
 - name: Copy allowed ips file
   ansible.builtin.copy:
     src: "{{ env }}/allowed_ips.txt"
