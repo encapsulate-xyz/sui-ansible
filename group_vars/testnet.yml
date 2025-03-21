@@ -17,4 +17,4 @@ sui:
       ha_proxy_frontend_port: 8080
       ha_proxy_metrics_port: 1936
   bridge:
-    version: 3ef5cc5b5c90d0cbe5297597489824d59b90b030
+    version: 9186d260572abd2d5bf6f46a3fa0bb6038d80f64
