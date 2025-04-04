@@ -70,6 +70,8 @@
     owner: root
     group: root
     mode: "0644"
+  notify:
+    - Restart service
 
 - name: Copy sui-bridge systemd service file
   ansible.builtin.template:
