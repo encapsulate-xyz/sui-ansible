@@ -2,7 +2,7 @@
 # maintains versions and can overwrite all.yml
 sui:
   validator:
-    version: 68a866b8d63e62ff628f11e45e4adea170d97107
+    version: 58aec61bc852981a21da5f772c54ec0074495110
     external_address: validator.sui.testnet.encapsulate.xyz
     # Overriding default ports to support haproxy
     ports:
@@ -10,11 +10,11 @@ sui:
       ha_proxy_frontend_port: 8080
       ha_proxy_metrics_port: 1936
   fullnode:
-    version: 68a866b8d63e62ff628f11e45e4adea170d97107
+    version: 58aec61bc852981a21da5f772c54ec0074495110
     # Overriding default ports to support haproxy
     ports:
       network_address_port: 8180
       ha_proxy_frontend_port: 8080
       ha_proxy_metrics_port: 1936
   bridge:
-    version: 68a866b8d63e62ff628f11e45e4adea170d97107
+    version: 58aec61bc852981a21da5f772c54ec0074495110
