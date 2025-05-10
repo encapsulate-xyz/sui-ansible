@@ -13,23 +13,11 @@ node_ufw_rules:
       from: any
       comment: network_address_port
 
-    - port: "{{ sui.validator.ports.narwhal_primary_interface_port }}"
+    - port: "{{ sui.validator.ports.consensus_interface_port }}"
       proto: tcp
       rule: allow
       from: any
       comment: consensus_interface_port
-
-    - port: "{{ sui.validator.ports.narwhal_primary_interface_port }}"
-      proto: udp
-      rule: allow
-      from: any
-      comment: narwhal_primary_interface_port
-
-    - port: "{{ sui.validator.ports.narwhal_worker_interface_port }}"
-      proto: udp
-      rule: allow
-      from: any
-      comment: narwhal_worker_interface_port
 
     - port: "{{ sui.validator.ports.metrics_port }}"
       proto: tcp
@@ -55,24 +43,6 @@ node_ufw_rules:
       rule: allow
       from: any
       comment: protocol_transaction_interface_port
-
-    - port: "{{ sui.fullnode.ports.narwhal_primary_interface_port }}"
-      proto: tcp
-      rule: allow
-      from: any
-      comment: consensus_interface_port
-
-    - port: "{{ sui.fullnode.ports.narwhal_primary_interface_port }}"
-      proto: udp
-      rule: allow
-      from: any
-      comment: narwhal_primary_interface_port
-
-    - port: "{{ sui.fullnode.ports.narwhal_worker_interface_port }}"
-      proto: udp
-      rule: allow
-      from: any
-      comment: narwhal_worker_interface_port
 
     - port: "{{ sui.fullnode.ports.json_rpc_port }}"
       proto: tcp
