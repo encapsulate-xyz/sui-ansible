@@ -21,9 +21,7 @@ sui:
     ports:
       admin_interface_port: 1337
       network_address_port: 8080
-      narwhal_primary_interface_port: 8081
-      narwhal_worker_interface_port: 8082
-      consensus_address_port: 8083
+      consensus_address_port: 8081
       p2p_port: 8084
       json_rpc_port: 9000
       metrics_port: 9184
@@ -32,9 +30,7 @@ sui:
     ports:
       admin_interface_port: 1337
       network_address_port: 8080
-      narwhal_primary_interface_port: 8081
-      narwhal_worker_interface_port: 8082
-      consensus_address_port: 8083
+      consensus_address_port: 8081
       p2p_port: 8084
       json_rpc_port: 9000
       metrics_port: 9184
