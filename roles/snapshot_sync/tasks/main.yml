@@ -20,6 +20,7 @@
   loop:
     - "{{ snapshot_sync_authorities_data_dir }}"
     - "{{ snapshot_sync_consensus_data_dir }}"
+  when: clean_database | default(false) | bool
 
 - name: Create data directories
   ansible.builtin.file:
@@ -31,6 +32,7 @@
   loop:
     - "{{ snapshot_sync_authorities_data_dir }}"
     - "{{ snapshot_sync_consensus_data_dir }}"
+  when: clean_database | default(false) | bool
 
 - name: Download sui formal snapshot using sui-tool
   ansible.builtin.command:
@@ -39,7 +41,7 @@
       --genesis {{ snapshot_sync_genesis_file_path }}
       --network {{ env }}
       --path {{ snapshot_sync_authorities_data_dir }}
-      --num-parallel-downloads 50
+      --num-parallel-downloads 25
       --no-sign-request
   changed_when: false
 
