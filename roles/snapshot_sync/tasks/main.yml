@@ -41,7 +41,7 @@
       --genesis {{ snapshot_sync_genesis_file_path }}
       --network {{ env }}
       --path {{ snapshot_sync_authorities_data_dir }}
-      --num-parallel-downloads 25
+      --num-parallel-downloads 10
       --no-sign-request
   changed_when: false
 
