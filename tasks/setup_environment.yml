@@ -25,7 +25,7 @@
 - name: Set all port variables dynamically
   ansible.builtin.set_fact:
     admin_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.admin }}"
-    interface_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.interface }}"
+    network_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.network }}"
     consensus_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.consensus }}"
     p2p_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.p2p }}"
     rpc_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.rpc }}"
@@ -39,7 +39,7 @@
       - "RPC Port: {{ rpc_port }}"
       - "Metrics Port: {{ metrics_port }}"
       - "Consensus Port: {{ consensus_port }}"
-      - "Interface Port: {{ interface_port }}"
+      - "Network Port: {{ network_port }}"
       - "Admin Port: {{ admin_port }}"
   when: type == "validator" or type == "fullnode"
 

@@ -22,7 +22,7 @@ sui:
       prefix: 80
       suffix:
         admin: 37
-        interface: 80
+        network: 80
         consensus: 81
         p2p: 84
         rpc: 90
@@ -33,7 +33,7 @@ sui:
       prefix: 80
       suffix:
         admin: 37
-        interface: 80
+        network: 80
         consensus: 81
         p2p: 84
         rpc: 90

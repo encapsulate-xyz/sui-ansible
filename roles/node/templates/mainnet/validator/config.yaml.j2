@@ -6,7 +6,7 @@ worker-key-pair:
 network-key-pair:
   path: "{{ node_network_key_path }}"
 db-path: "{{ node_authorities_data_dir }}"
-network-address: /ip4/0.0.0.0/tcp/{{ interface_port }}/http
+network-address: /ip4/0.0.0.0/tcp/{{ network_port }}/http
 json-rpc-address: 0.0.0.0:{{ rpc_port }}
 metrics-address: 0.0.0.0:{{ metrics_port }}
 admin-interface-port: {{ admin_port }}
