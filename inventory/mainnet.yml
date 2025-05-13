@@ -9,7 +9,7 @@ all:
         bridge.sui.mainnet.encapsulate.xyz:
           type: bridge
         validator.sui.mainnet.encapsulate.xyz:
-        67.217.63.234:
+        37.27.135.246:
           type: validator
         fullnode.sui.mainnet.encapsulate.xyz:
           type: fullnode
