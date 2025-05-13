@@ -9,7 +9,6 @@ all:
         bridge.sui.testnet.encapsulate.xyz:
           type: bridge
         validator.sui.testnet.encapsulate.xyz:
-        67.217.63.234:
           type: validator
         fullnode.sui.testnet.encapsulate.xyz:
           type: fullnode
