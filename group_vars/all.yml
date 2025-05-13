@@ -19,21 +19,25 @@ sui:
   validator:
     source_url: https://releases.sui.io
     ports:
-      admin_interface_port: 1337
-      network_address_port: 8080
-      consensus_address_port: 8081
-      p2p_port: 8084
-      json_rpc_port: 9000
-      metrics_port: 9184
+      prefix: 80
+      suffix:
+        admin: 37
+        interface: 80
+        consensus: 81
+        p2p: 84
+        rpc: 90
+        metrics: 91
   fullnode:
     source_url: https://releases.sui.io
     ports:
-      admin_interface_port: 1337
-      network_address_port: 8080
-      consensus_address_port: 8081
-      p2p_port: 8084
-      json_rpc_port: 9000
-      metrics_port: 9184
+      prefix: 80
+      suffix:
+        admin: 37
+        interface: 80
+        consensus: 81
+        p2p: 84
+        rpc: 90
+        metrics: 91
   bridge:
     source_url: https://releases.sui.io
     ports:
