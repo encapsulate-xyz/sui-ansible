@@ -23,6 +23,8 @@ sui:
       suffix:
         admin: 37
         network: 80
+        # Consensus port is updated through onchain transcation, After every epoch it reads onchain 
+        # data and updates the port.
         consensus: 81
         p2p: 84
         rpc: 90
