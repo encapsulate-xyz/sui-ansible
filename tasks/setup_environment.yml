@@ -22,6 +22,27 @@
       - "Operating System: {{ ansible_system | lower }}"
       - "System Architecture: {{ system_architecture }}"
 
+- name: Set all port variables dynamically
+  ansible.builtin.set_fact:
+    admin_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.admin }}"
+    network_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.network }}"
+    consensus_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.consensus }}"
+    p2p_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.p2p }}"
+    rpc_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.rpc }}"
+    metrics_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.metrics }}"
+  when: type == "validator" or type == "fullnode"
+
+- name: Display all port variables
+  ansible.builtin.debug:
+    msg:
+      - "P2P Port: {{ p2p_port }}"
+      - "RPC Port: {{ rpc_port }}"
+      - "Metrics Port: {{ metrics_port }}"
+      - "Consensus Port: {{ consensus_port }}"
+      - "Network Port: {{ network_port }}"
+      - "Admin Port: {{ admin_port }}"
+  when: type == "validator" or type == "fullnode"
+
 - name: Confirm deployment details
   ansible.builtin.pause:
     seconds: 40

@@ -6,12 +6,12 @@ worker-key-pair:
 network-key-pair:
   path: "{{ node_network_key_path }}"
 db-path: "{{ node_authorities_data_dir }}"
-network-address: /ip4/0.0.0.0/tcp/{{ sui.validator.ports.network_address_port }}/http
-json-rpc-address: 0.0.0.0:{{ sui.validator.ports.json_rpc_port }}
-metrics-address: 0.0.0.0:{{ sui.validator.ports.metrics_port }}
-admin-interface-port: {{ sui.validator.ports.admin_interface_port }}
+network-address: /ip4/0.0.0.0/tcp/{{ network_port }}/http
+json-rpc-address: 0.0.0.0:{{ rpc_port }}
+metrics-address: 0.0.0.0:{{ metrics_port }}
+admin-interface-port: {{ admin_port }}
 consensus-config:
-  address: /ip4/127.0.0.1/tcp/{{ sui.validator.ports.consensus_address_port }}/http
+  address: /ip4/127.0.0.1/tcp/{{ consensus_port }}/http
   db-path: "{{ node_consensus_data_dir }}"
   internal-worker-address: null
   #  timeout-secs: 60
@@ -42,8 +42,8 @@ consensus-config:
       worker_network_admin_server_base_port: 41669
 enable-event-processing: false
 p2p-config:
-  listen-address: 0.0.0.0:{{ sui.validator.ports.p2p_port }}
-  external-address: /dns/{{ sui.validator.external_address }}/udp/{{ sui.validator.ports.p2p_port }}
+  listen-address: 0.0.0.0:{{ p2p_port }}
+  external-address: /dns/{{ sui.validator.external_address }}/udp/{{ p2p_port }}
   seed-peers:
     - address: /dns/ewr-tnt-ssfn-00.testnet.sui.io/udp/8084
       peer-id: df8a8d128051c249e224f95fcc463f518a0ebed8986bbdcc11ed751181fecd38

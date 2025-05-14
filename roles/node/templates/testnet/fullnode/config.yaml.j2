@@ -2,10 +2,10 @@
 db-path: "{{ node_authorities_data_dir }}"
 
 # For ipv4, update this to "/ip4/X.X.X.X/tcp/8080/http"
-network-address: "/dns/localhost/tcp/{{ sui.fullnode.ports.network_address_port }}/http"
-metrics-address: "0.0.0.0:{{ sui.fullnode.ports.metrics_port }}"
+network-address: "/dns/localhost/tcp/{{ network_port }}/http"
+metrics-address: "0.0.0.0:{{ metrics_port }}"
 # this address is also used for web socket connections
-json-rpc-address: "0.0.0.0:{{ sui.fullnode.ports.json_rpc_port }}"
+json-rpc-address: "0.0.0.0:{{ rpc_port }}"
 enable-event-processing: true
 
 genesis:

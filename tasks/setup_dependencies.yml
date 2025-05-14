@@ -10,7 +10,7 @@
     - libpq-dev
 
 - name: Configure sysctl settings for node
-  copy:
+  ansible.builtin.copy:
     dest: "/etc/sysctl.d/100-{{ service_identifier }}.conf"
     content: |
       net.core.rmem_max = 104857600
@@ -20,7 +20,8 @@
     owner: root
     group: root
     mode: "0644"
+  register: sysctl_settings
 
 - name: Apply sysctl settings
-  command: sysctl --system
-  changed_when: true
+  ansible.builtin.command: sysctl --system
+  when: sysctl_settings.changed
