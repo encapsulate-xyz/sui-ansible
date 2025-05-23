@@ -33,6 +33,14 @@ approved-governance-actions:
         - 8
       token_prices:
         - 9000000000000
+  - EmergencyAction:
+      nonce: 1
+      chain_id: SuiMainnet
+      action_type: Unpause
+  - EmergencyAction:
+      nonce: 1
+      chain_id: EthMainnet
+      action_type: Unpause
 sui:
   sui-rpc-url: {{ vault.mainnet.bridge.sui.rpc_url }}
   sui-bridge-chain-id: 0
