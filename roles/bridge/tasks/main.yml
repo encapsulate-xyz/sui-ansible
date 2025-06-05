@@ -63,6 +63,16 @@
         force: true
         mode: "0755"
 
+- name: Copy sui general env file
+  ansible.builtin.template:
+    src: general.env.j2
+    dest: "{{ bridge_environment_general_file_path }}"
+    owner: root
+    group: root
+    mode: "0644"
+  notify:
+    - Restart service
+
 - name: Copy sui-bridge systemd service file
   ansible.builtin.template:
     src: "{{ env }}/sui-bridge.service.j2"

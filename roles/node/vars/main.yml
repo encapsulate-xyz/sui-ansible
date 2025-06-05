@@ -17,3 +17,8 @@ node_cli_binary_name: sui-cli
 
 # Environment file names
 node_environment_general_file_name: "{{ service_identifier }}.env"
+
+# HAProxy file names
+node_haproxy_allowed_ips_file_name: allowed_ips.txt
+node_haproxy_blocked_ips_file_name: blocked_ips.txt
+node_haproxy_config_file_name: haproxy.cfg

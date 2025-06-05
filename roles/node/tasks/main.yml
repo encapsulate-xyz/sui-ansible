@@ -87,6 +87,8 @@
     owner: root
     group: root
     mode: "0644"
+  notify:
+    - Restart service
 
 - name: Copy sui-node systemd service file
   ansible.builtin.template:

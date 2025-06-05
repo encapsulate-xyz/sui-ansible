@@ -7,32 +7,14 @@ db-path: {{ bridge_data_dir }}
 watchdog-config:
   total-supplies: {"eth": "0xd0e89b2af5e4910726fbcd8b8dd37bb79b29e5f83f7491bca830e94f7f226d29::eth::ETH"}
 approved-governance-actions:
-  - AddTokensOnSuiAction:
-      nonce: 3
+  - EmergencyAction:
+      nonce: 1
       chain_id: SuiMainnet
-      native: false
-      token_ids:
-        - 6
-      token_type_names:
-        - struct:
-            address: 0xc6d1cb347faf61fb743d09cf91be7280960052374a3e894342ce947b2de3e56f
-            module: wlbtc
-            name: WLBTC
-            type_args: []
-      token_prices:
-        - 9000000000000
-  - AddTokensOnEvmAction:
-      nonce: 2
+      action_type: Unpause
+  - EmergencyAction:
+      nonce: 1
       chain_id: EthMainnet
-      native: true
-      token_ids:
-        - 6
-      token_addresses:
-        - 0x8236a87084f8b84306f72007f36f2618a5634494
-      token_sui_decimals:
-        - 8
-      token_prices:
-        - 9000000000000
+      action_type: Unpause
 sui:
   sui-rpc-url: {{ vault.mainnet.bridge.sui.rpc_url }}
   sui-bridge-chain-id: 0

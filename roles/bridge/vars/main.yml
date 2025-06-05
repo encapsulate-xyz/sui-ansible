@@ -9,3 +9,6 @@ bridge_client_key_file_name: client.key
 # binary names
 bridge_service_default_binary_name: sui-bridge
 bridge_cli_default_binary_name: sui-bridge-cli
+
+# Environment file names
+bridge_environment_general_file_name: "{{ service_identifier }}.env"
