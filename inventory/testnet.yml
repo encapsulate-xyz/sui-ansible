@@ -7,8 +7,10 @@ all:
     sui:
       hosts:
         bridge.sui.testnet.encapsulate.xyz:
+        67.217.61.146:
           type: bridge
         validator.sui.testnet.encapsulate.xyz:
+        67.217.61.146:
           type: validator
         fullnode.sui.testnet.encapsulate.xyz:
           type: fullnode
