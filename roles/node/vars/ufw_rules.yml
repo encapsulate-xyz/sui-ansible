@@ -22,7 +22,7 @@ node_ufw_rules:
     - port: "{{ metrics_port }}"
       proto: tcp
       rule: allow
-      from: any
+      from: "{{ monitor_server_dns }}"
       comment: metrics_port
 
     - port: "{{ metrics_port }}"
