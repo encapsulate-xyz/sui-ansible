@@ -3,7 +3,7 @@
 sui:
   validator:
     version: 0cfc71d63baec89b4b380eb7c5a65590460afabc
-    external_address: validator.sui.mainnet.encapsulate.xyz
+    external_address: validator1.sui.mainnet.encapsulate.xyz
   fullnode:
     version: 0cfc71d63baec89b4b380eb7c5a65590460afabc
   bridge:
