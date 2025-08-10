@@ -7,14 +7,16 @@ db-path: {{ bridge_data_dir }}
 watchdog-config:
   total-supplies: {"eth": "0xd0e89b2af5e4910726fbcd8b8dd37bb79b29e5f83f7491bca830e94f7f226d29::eth::ETH"}
 approved-governance-actions:
-  - EmergencyAction:
-      nonce: 1
-      chain_id: SuiMainnet
-      action_type: Unpause
-  - EmergencyAction:
+  - LimitUpdateAction:
       nonce: 1
       chain_id: EthMainnet
-      action_type: Unpause
+      sending_chain_id: SuiMainnet
+      new_usd_limit: 800000000000000
+  - LimitUpdateAction:
+      nonce: 3
+      chain_id: SuiMainnet
+      sending_chain_id: EthMainnet
+      new_usd_limit: 1700000000000000
 sui:
   sui-rpc-url: {{ vault.mainnet.bridge.sui.rpc_url }}
   sui-bridge-chain-id: 0
