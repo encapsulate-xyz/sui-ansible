@@ -55,3 +55,34 @@ node_ufw_rules:
       rule: allow
       from: "{{ monitor_server_dns }}"
       comment: metrics_port
+
+  dummy:
+    - port: "{{ p2p_port }}"
+      proto: udp
+      rule: allow
+      from: any
+      comment: p2p_port
+
+    - port: "{{ network_port }}"
+      proto: tcp
+      rule: allow
+      from: any
+      comment: network_port
+
+    - port: "{{ consensus_port }}"
+      proto: tcp
+      rule: allow
+      from: any
+      comment: consensus_port
+
+    - port: "{{ metrics_port }}"
+      proto: tcp
+      rule: allow
+      from: "{{ monitor_server_dns }}"
+      comment: metrics_port
+
+    - port: "{{ metrics_port }}"
+      proto: tcp
+      rule: allow
+      from: "{{ monitor_bot_dns }}"
+      comment: metrics_port
