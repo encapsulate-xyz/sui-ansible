@@ -12,7 +12,7 @@ all:
           type: validator
         157.90.3.253:
           type: validator
-        139.84.143.106:
+        dummy.sui.mainnet.encapsulate.xyz:
           type: dummy
         fullnode.sui.mainnet.encapsulate.xyz:
           type: fullnode

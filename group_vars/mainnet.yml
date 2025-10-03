@@ -10,4 +10,4 @@ sui:
     version: 83e72a664e8853ecc316efd70a62762a07d04177
   dummy:
     version: 83e72a664e8853ecc316efd70a62762a07d04177
-    external_address: 139.84.143.106
+    external_address: dummy.sui.mainnet.encapsulate.xyz
