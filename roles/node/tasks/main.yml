@@ -90,6 +90,10 @@
   notify:
     - Restart service
 
+- name: Migrate fullnode to validator
+  ansible.builtin.include_tasks: migrate_fullnode_to_validator.yml
+  when: migrate_fullnode_to_validator | default(false) | bool
+
 - name: Copy sui-node systemd service file
   ansible.builtin.template:
     src: "{{ env }}/systemd.service.j2"

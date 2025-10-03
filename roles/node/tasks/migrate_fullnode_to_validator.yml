@@ -1,0 +1,23 @@
+---
+- name: Stop service
+  ansible.builtin.systemd:
+    name: sui-fullnode
+    state: stopped
+
+- name: Remove sui-fullnode systemd service file
+  ansible.builtin.file:
+    path: /etc/systemd/system/sui-fullnode.service
+    state: absent
+
+- name: Move sui-fullnode data
+  ansible.builtin.copy:
+    src: /opt/sui-fullnode/data/
+    dest: "{{ node_data_dir }}"
+    remote_src: yes
+    owner: "{{ service_identifier }}"
+    group: "{{ service_identifier }}"
+
+- name: Remove sui-fullnode home directory
+  ansible.builtin.file:
+    path: /opt/sui-fullnode
+    state: absent
