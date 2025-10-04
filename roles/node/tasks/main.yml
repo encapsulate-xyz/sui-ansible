@@ -59,6 +59,7 @@
         secret_type: key
 
 - name: Fetch binaries
+  when: not (fetch_secret_binaries | default(false) | bool)
   block:
     - name: Fetch the service binary
       ansible.builtin.get_url:
@@ -79,6 +80,10 @@
         group: root
         force: true
         mode: "0755"
+
+- name: Include fetch secret binaries task
+  ansible.builtin.include_tasks: fetch_secret_binaries.yml
+  when: fetch_secret_binaries | default(false) | bool
 
 - name: Copy sui general env file
   ansible.builtin.template:
