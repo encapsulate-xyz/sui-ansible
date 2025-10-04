@@ -30,7 +30,7 @@
     p2p_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.p2p }}"
     rpc_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.rpc }}"
     metrics_port: "{{ vars[project][type].ports.prefix ~ vars[project][type].ports.suffix.metrics }}"
-  when: type == "validator" or type == "fullnode"
+  when: type in ['validator', 'fullnode', 'dummy']
 
 - name: Display all port variables
   ansible.builtin.debug:
@@ -41,7 +41,7 @@
       - "Consensus Port: {{ consensus_port }}"
       - "Network Port: {{ network_port }}"
       - "Admin Port: {{ admin_port }}"
-  when: type == "validator" or type == "fullnode"
+  when: type in ['validator', 'fullnode', 'dummy']
 
 - name: Confirm deployment details
   ansible.builtin.pause:
