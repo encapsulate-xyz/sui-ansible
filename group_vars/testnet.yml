@@ -8,3 +8,6 @@ sui:
     version: 83e72a664e8853ecc316efd70a62762a07d04177
   bridge:
     version: 83e72a664e8853ecc316efd70a62762a07d04177
+  dummy:
+    version: 83e72a664e8853ecc316efd70a62762a07d04177
+    external_address:
