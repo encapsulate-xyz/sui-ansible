@@ -2,7 +2,7 @@
 db-path: "{{ node_authorities_data_dir }}"
 
 # For ipv4, update this to "/ip4/X.X.X.X/tcp/8080/http"
-network-address: "/dns/localhost/tcp/{{ network_port }}/http"
+network-address: "/ip4/0.0.0.0/tcp/{{ network_port }}/http"
 metrics-address: "0.0.0.0:{{ metrics_port }}"
 # this address is also used for web socket connections
 json-rpc-address: "0.0.0.0:{{ rpc_port }}"
@@ -21,11 +21,15 @@ authority-store-pruning-config:
   pruning-run-delay-seconds: 60
 
 state-archive-read-config:
+  # Use https://checkpoints.mainnet.sui.io for mainnet
+  # Use https://checkpoints.testnet.sui.io for testnet
+  - ingestion-url: "https://checkpoints.mainnet.sui.io"
+    concurrency: 5
   - object-store-config:
       object-store: "S3"
       # Use mysten-testnet-archives for testnet 
       # Use mysten-mainnet-archives for mainnet
-      bucket: "mysten-testnet-archives"
+      bucket: "mysten-mainnet-archives"
       # you can either provide your own aws credentials via "aws-secret-access-key" and
       # "aws-access-key-id" or set no-sign-request: true
       no-sign-request: true
@@ -59,3 +63,4 @@ p2p-config:
       peer-id: fadb7ccb0b7fc99223419176e707f5122fef4ea686eb8e80d1778588bf5a0bcd
     - address: /dns/ssn02.mainnet.sui.rpcpool.com/udp/8084
       peer-id: 13783584a90025b87d4604f1991252221e5fd88cab40001642f4b00111ae9b7e
+  listen-address: "0.0.0.0:{{ p2p_port }}"
