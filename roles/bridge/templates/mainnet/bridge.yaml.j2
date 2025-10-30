@@ -8,10 +8,15 @@ watchdog-config:
   total-supplies: {"eth": "0xd0e89b2af5e4910726fbcd8b8dd37bb79b29e5f83f7491bca830e94f7f226d29::eth::ETH"}
 approved-governance-actions:
   - LimitUpdateAction:
+      nonce: 3
+      chain_id: EthMainnet
+      sending_chain_id: SuiMainnet
+      new_usd_limit: 5000000000000000
+  - LimitUpdateAction:
       nonce: 4
-      chain_id: SuiMainnet
-      sending_chain_id: EthMainnet
-      new_usd_limit: 2500000000000000
+      chain_id: EthMainnet
+      sending_chain_id: SuiMainnet
+      new_usd_limit: 2000000000000000
 sui:
   sui-rpc-url: {{ vault.mainnet.bridge.sui.rpc_url }}
   sui-bridge-chain-id: 0
