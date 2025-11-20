@@ -7,7 +7,7 @@ sui:
   fullnode:
     version: edfb00f26f1e5d967a71ccba828e6c01dfb9db0d
   bridge:
-    version: edfb00f26f1e5d967a71ccba828e6c01dfb9db0d
+    version: 7980604377ead9590c7797cf524b015a6ec4569b
   dummy:
     version: edfb00f26f1e5d967a71ccba828e6c01dfb9db0d
     external_address:
