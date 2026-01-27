@@ -89,8 +89,8 @@
   ansible.builtin.template:
     src: "{{ env }}/general.env.j2"
     dest: "{{ node_environment_general_file_path }}"
-    owner: root
-    group: root
+    owner: "{{ service_identifier }}"
+    group: "{{ service_identifier }}"
     mode: "0644"
   notify:
     - Restart service

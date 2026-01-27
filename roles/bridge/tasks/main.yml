@@ -67,8 +67,8 @@
   ansible.builtin.template:
     src: general.env.j2
     dest: "{{ bridge_environment_general_file_path }}"
-    owner: root
-    group: root
+    owner: "{{ service_identifier }}"
+    group: "{{ service_identifier }}"
     mode: "0644"
   notify:
     - Restart service
