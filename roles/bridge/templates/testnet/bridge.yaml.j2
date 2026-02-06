@@ -6,10 +6,10 @@ run-client: false
 db-path: {{ bridge_data_dir }}
 approved-governance-actions:
   - EvmContractUpgradeAction:
-      nonce: 2
+      nonce: 3
       chain_id: EthSepolia
       proxy_address: 0xAE68F87938439afEEDd6552B0E83D2CbC2473623
-      new_impl_address: 0xFe21B8488eAfd402857f83A242Ce4d0BdB3C7690
+      new_impl_address: 0xe3D3C63E820999c61Bc25C0A808Bf480B1C65C7F
       call_data: []
 sui:
     sui-rpc-url: {{ vault.testnet.bridge.sui.rpc_url }}
