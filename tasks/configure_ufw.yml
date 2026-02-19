@@ -23,4 +23,5 @@
   community.general.ufw:
     rule: limit
     name: OpenSSH
+    delete: true
     comment: limit SSH from any ip on tcp protocol
