@@ -14,9 +14,9 @@ all:
           type: dummy
         fullnode.sui.mainnet.encapsulate.xyz:
           type: fullnode
-        new.bridge.sui.mainnet.encapsulate.xyz:
+        ts.bridge.sui.mainnet.encapsulate.xyz:
           type: bridge
-        new.validator.sui.mainnet.encapsulate.xyz:
+        ts.validator.sui.mainnet.encapsulate.xyz:
           type: validator
-        new.dummy.sui.mainnet.encapsulate.xyz:
+        ts.dummy.sui.mainnet.encapsulate.xyz:
           type: dummy
