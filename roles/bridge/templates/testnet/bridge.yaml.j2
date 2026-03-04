@@ -5,12 +5,26 @@ bridge-authority-key-path: {{ bridge_authority_key_path }}
 run-client: false
 db-path: {{ bridge_data_dir }}
 approved-governance-actions:
-  - EvmContractUpgradeAction:
+  - LimitUpdateAction:
+      nonce: 2
+      chain_id: EthSepolia
+      sending_chain_id: SuiTestnet
+      new_usd_limit: 1
+  - LimitUpdateAction:
       nonce: 3
       chain_id: EthSepolia
-      proxy_address: 0xAE68F87938439afEEDd6552B0E83D2CbC2473623
-      new_impl_address: 0xe3D3C63E820999c61Bc25C0A808Bf480B1C65C7F
-      call_data: []
+      sending_chain_id: SuiTestnet
+      new_usd_limit: 1000000000000000000
+  - LimitUpdateAction:
+      nonce: 2
+      chain_id: SuiTestnet
+      sending_chain_id: EthSepolia
+      new_usd_limit: 1
+  - LimitUpdateAction:
+      nonce: 3
+      chain_id: SuiTestnet
+      sending_chain_id: EthSepolia
+      new_usd_limit: 1000000000000000000
 sui:
     sui-rpc-url: {{ vault.testnet.bridge.sui.rpc_url }}
     sui-bridge-chain-id: 1
