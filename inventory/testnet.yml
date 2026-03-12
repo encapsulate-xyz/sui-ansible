@@ -10,5 +10,9 @@ all:
           type: bridge
         validator.sui.testnet.encapsulate.xyz:
           type: validator
+        ts.bridge.sui.testnet.encapsulate.xyz:
+          type: bridge
+        ts.validator.sui.testnet.encapsulate.xyz:
+          type: validator
         fullnode.sui.testnet.encapsulate.xyz:
           type: fullnode
