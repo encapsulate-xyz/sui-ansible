@@ -6,10 +6,6 @@ all:
   children:
     sui:
       hosts:
-        bridge.sui.testnet.encapsulate.xyz:
-          type: bridge
-        validator.sui.testnet.encapsulate.xyz:
-          type: validator
         ts.bridge.sui.testnet.encapsulate.xyz:
           type: bridge
         ts.validator.sui.testnet.encapsulate.xyz:
