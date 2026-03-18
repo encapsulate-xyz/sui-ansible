@@ -6,17 +6,13 @@ all:
   children:
     sui:
       hosts:
-        bridge.sui.mainnet.encapsulate.xyz:
-          type: bridge
-        validator.sui.mainnet.encapsulate.xyz:
-          type: validator
-        dummy.sui.mainnet.encapsulate.xyz:
-          type: dummy
-        fullnode.sui.mainnet.encapsulate.xyz:
-          type: fullnode
         ts.bridge.sui.mainnet.encapsulate.xyz:
           type: bridge
         ts.validator.sui.mainnet.encapsulate.xyz:
           type: validator
         ts.dummy.sui.mainnet.encapsulate.xyz:
           type: dummy
+        dummy.sui.mainnet.encapsulate.xyz:
+          type: dummy
+        fullnode.sui.mainnet.encapsulate.xyz:
+          type: fullnode
