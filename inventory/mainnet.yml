@@ -12,7 +12,5 @@ all:
           type: validator
         ts.dummy.sui.mainnet.encapsulate.xyz:
           type: dummy
-        dummy.sui.mainnet.encapsulate.xyz:
-          type: dummy
         fullnode.sui.mainnet.encapsulate.xyz:
           type: fullnode
