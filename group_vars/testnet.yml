@@ -2,12 +2,12 @@
 # maintains versions and can overwrite all.yml
 sui:
   validator:
-    version: 85b460a63fd76a15672bbe4820bde6db78a3cfb8
+    version: 0a9aa917aabeb5a6f64b822a075206440b4db3dc
     external_address: validator.sui.testnet.encapsulate.xyz
   fullnode:
-    version: 85b460a63fd76a15672bbe4820bde6db78a3cfb8
+    version: 0a9aa917aabeb5a6f64b822a075206440b4db3dc
   bridge:
-    version: 85b460a63fd76a15672bbe4820bde6db78a3cfb8
+    version: 0a9aa917aabeb5a6f64b822a075206440b4db3dc
   dummy:
-    version: 85b460a63fd76a15672bbe4820bde6db78a3cfb8
+    version: 0a9aa917aabeb5a6f64b822a075206440b4db3dc
     external_address:
