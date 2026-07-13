@@ -11,3 +11,17 @@ sui:
   dummy:
     version: 8fc60f1fa966e90398c93beb67ad4f42992889c7
     external_address: dummy.sui.mainnet.encapsulate.xyz
+  hashi:
+    version: main
+    rust:
+      version: 1.87.0
+    sui_chain_id: 4btiuiMPvEENsttpZC7CZ53DruC3MAgfznDbASZ7DR6S
+    validator_address: "0x01d03daf1dc3540b62014b0a6837f21ba72bf9218d6c4b3a2ee65465dde26ff7"
+    external_address: https://hashi.sui.mainnet.encapsulate.xyz:443
+    sui_rpc: https://fullnode.mainnet.sui.io:443
+    bitcoin_chain_id: "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
+    bitcoin_rpc: http://ts.bitcoin.mainnet.encapsulate.xyz:8332
+    bitcoin_trusted_peers: "ts.bitcoin.mainnet.encapsulate.xyz:8333"
+    bitcoin_start_height_default: 800000
+    package_id: "0xPLACEHOLDER_MAINNET_PACKAGE_ID"
+    hashi_object_id: "0xPLACEHOLDER_MAINNET_HASHI_OBJECT_ID"

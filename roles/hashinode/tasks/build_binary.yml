@@ -1,0 +1,32 @@
+---
+- name: Clone the repository
+  ansible.builtin.git:
+    repo: "{{ sui.hashi.source_url }}"
+    dest: "{{ tmp_dir }}/{{ service_identifier }}"
+    version: "{{ sui.hashi.version }}"
+    force: true
+
+- name: Build the binary
+  ansible.builtin.command:
+    cmd: bash docker/hashi/build.sh --no-cache
+    chdir: "{{ tmp_dir }}/{{ service_identifier }}"
+  environment:
+    PATH: "{{ rust.path }}/bin:{{ ansible_env.PATH }}"
+    RUSTUP_HOME: "{{ rust.root }}/cargo"
+    CARGO_HOME: "{{ rust.root }}/cargo"
+
+- name: Copy built binary to bin directory
+  ansible.builtin.copy:
+    src: "{{ tmp_dir }}/{{ service_identifier }}/out/{{ hashinode_service_default_binary_name }}"
+    dest: "{{ hashinode_bin_dir }}/{{ service_identifier }}"
+    remote_src: true
+    owner: root
+    group: root
+    mode: "0755"
+  notify:
+    - Restart service
+
+- name: Clean up the temporary repository directory
+  ansible.builtin.file:
+    path: "{{ tmp_dir }}/{{ service_identifier }}"
+    state: absent

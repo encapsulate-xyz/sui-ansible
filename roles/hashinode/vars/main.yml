@@ -1,0 +1,16 @@
+---
+# maintains file name, binary names, and anything which is not a directory or path
+
+# config file names
+hashinode_config_file_name: validator.toml
+
+# key file names
+hashinode_tls_key_file_name: tls-private-key.pem
+hashinode_operator_key_file_name: operator-key.pem
+hashinode_backup_pgp_cert_file_name: backup-cert.asc
+
+# binary names
+hashinode_service_default_binary_name: hashi
+
+# Environment file names
+hashinode_environment_general_file_name: "{{ service_identifier }}.env"

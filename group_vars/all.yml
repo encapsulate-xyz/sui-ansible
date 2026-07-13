@@ -7,6 +7,8 @@ monitor_server_dns: h1-finland-hub-monitor.crane-goldeye.ts.net
 monitor_bot_dns: bot.sui.mainnet.encapsulate.xyz
 ansible_port: 8192
 
+tmp_dir: /tmp
+
 architecture_map:
   x86_64: amd64
   aarch64: arm64
@@ -15,6 +17,10 @@ default_node_types:
   - validator
   - default
   - dummy
+
+rust:
+  root: /opt
+  path: /opt/cargo
 
 sui:
   validator:
@@ -59,3 +65,8 @@ sui:
         p2p: 84
         rpc: 90
         metrics: 91
+  hashi:
+    source_url: https://github.com/MystenLabs/hashi
+    ports:
+      server_listen_port: 8043
+      metrics_port: 8053
