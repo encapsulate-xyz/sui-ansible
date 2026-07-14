@@ -10,5 +10,7 @@ all:
           type: bridge
         ts.validator.sui.testnet.encapsulate.xyz:
           type: validator
-        fullnode.sui.testnet.encapsulate.xyz:
+        ts.fullnode.sui.testnet.encapsulate.xyz:
           type: fullnode
+        ts.hashi.sui.testnet.encapsulate.xyz:
+          type: hashi

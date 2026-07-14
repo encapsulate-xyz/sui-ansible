@@ -1,10 +1,10 @@
 ---
 - name: Install apt packages
   ansible.builtin.apt:
-    name: "{{ item }}"
+    name:   
+      - libjemalloc-dev
+      - libpq-dev
+      - git
     state: present
     update_cache: true
     cache_valid_time: 3600
-  loop:
-    - libjemalloc-dev
-    - libpq-dev

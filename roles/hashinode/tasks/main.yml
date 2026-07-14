@@ -1,0 +1,83 @@
+---
+- name: Include the ufw vars file
+  ansible.builtin.include_vars:
+    file: vars/ufw_rules.yml
+
+- name: Apply UFW rules
+  ansible.builtin.include_tasks: tasks/apply_ufw_rules.yml
+  loop: "{{ hashinode_ufw_rules }}"
+
+- name: Install apt packages
+  ansible.builtin.apt:
+    name:
+      - gnupg
+      - gnupg-agent
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Include user creation task for sui
+  ansible.builtin.include_tasks: tasks/create_user_and_directories.yml
+  vars:
+    home: "{{ hashinode_home_dir }}"
+    directories: "{{ hashinode_directories }}"
+    log_file_path: "{{ hashinode_log_file_path }}"
+
+- name: Copy hashi configuration file
+  ansible.builtin.template:
+    src: "{{ env }}/validator.toml.j2"
+    dest: "{{ hashinode_config_file_path }}"
+    owner: "{{ service_identifier }}"
+    group: "{{ service_identifier }}"
+    mode: "0600"
+  notify:
+    - Restart service
+
+- name: Fetch secrets from HCP Vault and save to files
+  when: fetch_vault_secrets | default(false) | bool
+  block:
+    - name: Fetch TLS key and save
+      ansible.builtin.include_tasks: tasks/get_and_save_vault_secret.yml
+      vars:
+        vault_secret_source_path: "{{ project }}/{{ org }}/{{ type }}/{{ hashinode_tls_key_file_name }}"
+        secret_destination_path: "{{ hashinode_tls_key_path }}"
+        secret_type: key
+
+    - name: Fetch operator key and save
+      ansible.builtin.include_tasks: tasks/get_and_save_vault_secret.yml
+      vars:
+        vault_secret_source_path: "{{ project }}/{{ org }}/{{ type }}/{{ hashinode_operator_key_file_name }}"
+        secret_destination_path: "{{ hashinode_operator_key_path }}"
+        secret_type: key
+
+    - name: Fetch backup PGP public certificate and save
+      ansible.builtin.include_tasks: tasks/get_and_save_vault_secret.yml
+      vars:
+        vault_secret_source_path: "{{ project }}/{{ org }}/{{ type }}/{{ hashinode_backup_pgp_cert_file_name }}"
+        secret_destination_path: "{{ hashinode_backup_pgp_cert_path }}"
+        secret_type: key
+
+- name: Include build binary task
+  ansible.builtin.include_tasks: build_binary.yml
+  when: build_binary | default(true) | bool
+
+- name: Copy general env file
+  ansible.builtin.template:
+    src: general.env.j2
+    dest: "{{ hashinode_environment_general_file_path }}"
+    owner: "{{ service_identifier }}"
+    group: "{{ service_identifier }}"
+    mode: "0644"
+  notify:
+    - Restart service
+
+- name: Copy systemd service file
+  ansible.builtin.template:
+    src: "{{ env }}/systemd.service.j2"
+    dest: /etc/systemd/system/{{ service_identifier }}.service
+    owner: root
+    group: root
+    mode: "0644"
+  notify:
+    - Reload service
+    - Restart service

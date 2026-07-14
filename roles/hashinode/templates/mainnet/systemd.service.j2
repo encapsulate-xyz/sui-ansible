@@ -1,0 +1,18 @@
+[Unit]
+Description=Sui Hashi Node
+After=network.target
+
+[Service]
+User={{ service_identifier }}
+WorkingDirectory={{ hashinode_home_dir }}
+EnvironmentFile={{ hashinode_environment_general_file_path }}
+ExecStart={{ hashinode_bin_dir }}/{{ service_identifier }} server --config {{ hashinode_config_file_path }}
+Restart=always
+RestartSec=4
+LimitNOFILE=65536
+MemoryMax=64G
+StandardOutput=append:{{ hashinode_log_file_path }}
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target

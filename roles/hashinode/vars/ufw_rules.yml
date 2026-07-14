@@ -1,0 +1,13 @@
+---
+hashinode_ufw_rules:
+  - port: "{{ sui.hashi.ports.server_listen_port }}"
+    proto: tcp
+    rule: allow
+    from: any
+    comment: server_listen_port
+
+  - port: "{{ sui.hashi.ports.metrics_port }}"
+    proto: tcp
+    rule: allow
+    from: "{{ monitor_server_dns }}"
+    comment: metrics_port

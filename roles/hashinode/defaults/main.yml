@@ -1,0 +1,30 @@
+---
+# maintains directories and paths
+hashinode_home_dir: /opt/{{ service_identifier }}
+
+hashinode_bin_dir: "{{ hashinode_home_dir }}/bin"
+hashinode_config_dir: "{{ hashinode_home_dir }}/config"
+hashinode_data_dir: "{{ hashinode_home_dir }}/data"
+hashinode_env_dir: "{{ hashinode_home_dir }}/environment"
+hashinode_log_dir: "{{ hashinode_home_dir }}/log"
+hashinode_key_dir: "{{ hashinode_home_dir }}/key"
+
+hashinode_backup_dir: "{{ hashinode_data_dir }}/backup"
+
+hashinode_directories:
+  - "{{ hashinode_home_dir }}"
+  - "{{ hashinode_bin_dir }}"
+  - "{{ hashinode_config_dir }}"
+  - "{{ hashinode_data_dir }}"
+  - "{{ hashinode_env_dir }}"
+  - "{{ hashinode_key_dir }}"
+  - "{{ hashinode_log_dir }}"
+
+hashinode_config_file_path: "{{ hashinode_config_dir }}/{{ hashinode_config_file_name }}"
+hashinode_log_file_path: "{{ hashinode_log_dir }}/{{ service_identifier }}.log"
+
+hashinode_tls_key_path: "{{ hashinode_key_dir }}/{{ hashinode_tls_key_file_name }}"
+hashinode_operator_key_path: "{{ hashinode_key_dir }}/{{ hashinode_operator_key_file_name }}"
+hashinode_backup_pgp_cert_path: "{{ hashinode_key_dir }}/{{ hashinode_backup_pgp_cert_file_name }}"
+
+hashinode_environment_general_file_path: "{{ hashinode_env_dir }}/{{ hashinode_environment_general_file_name }}"
