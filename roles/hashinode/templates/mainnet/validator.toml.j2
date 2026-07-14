@@ -15,7 +15,7 @@ validator-address = "{{ sui.hashi.validator_address }}"
 listen-address = "0.0.0.0:{{ sui.hashi.ports.server_listen_port }}"
 
 # Public URL where other validators can reach this node
-endpoint-url = "{{ sui.hashi.external_address }}"
+endpoint-url = "{{ sui.hashi.external_address }}:{{ sui.hashi.ports.server_listen_port }}"
 
 # Prometheus metrics endpoint (default: 127.0.0.1:9180)
 metrics-http-address = "0.0.0.0:{{ sui.hashi.ports.metrics_port }}"
@@ -28,11 +28,6 @@ sui-chain-id = "{{ sui.hashi.sui_chain_id }}"
 # Sui gRPC endpoint.
 sui-rpc = "{{ sui.hashi.sui_rpc }}"
 
-# Hashi package and object IDs
-[hashi-ids]
-package-id = "{{ sui.hashi.package_id }}"
-hashi-object-id = "{{ sui.hashi.hashi_object_id }}"
-
 # ── Bitcoin ───────────────────────────────────────────────────────────
 
 # Bitcoin chain ID — genesis block hash.
@@ -41,12 +36,8 @@ bitcoin-chain-id = "{{ sui.hashi.bitcoin_chain_id }}"
 # Bitcoin Core RPC endpoint
 bitcoin-rpc = "{{ sui.hashi.bitcoin_rpc }}"
 
-# RPC authentication: None, UserPass, or CookieFile
-[bitcoin-rpc-auth]
-UserPass = [ "{{ vault.hashi.bitcoin_rpc_user }}", "{{ vault.hashi.bitcoin_rpc_password }}" ]
-
 # Trusted Bitcoin P2P peers for the embedded BIP-157 light client
-bitcoin-trusted-peers = [{{ sui.hashi.bitcoin_trusted_peers }}]
+bitcoin-trusted-peers = ["{{ sui.hashi.bitcoin_trusted_peers }}"]
 
 # Block height the light client begins syncing from
 bitcoin-start-height = {{ hashi_bitcoin_start_height | default(sui.hashi.bitcoin_start_height_default) }}
@@ -59,7 +50,18 @@ db = "{{ hashinode_data_dir }}/db"
 # ── Backup (OpenPGP / Sequoia) ────────────────────────────────────────
 
 # Armored OpenPGP public certificate for encrypted backups
-backup-pgp-cert = "{{ hashinode_backup_pgp_cert_path }}"
+# backup-pgp-cert = "{{ hashinode_backup_pgp_cert_path }}"
+backup-pgp-cert = '''
+{{ lookup('file', env + '/backup-cert.asc') }}'''
 
 # Backup output directory
 backup-dir = "{{ hashinode_backup_dir }}"
+
+# Hashi package and object IDs
+[hashi-ids]
+package-id = "{{ sui.hashi.package_id }}"
+hashi-object-id = "{{ sui.hashi.hashi_object_id }}"
+
+# RPC authentication: None, UserPass, or CookieFile
+[bitcoin-rpc-auth]
+UserPass = ["{{ vault.hashi.bitcoin_rpc_user }}", "{{ vault.hashi.bitcoin_rpc_password }}"]
