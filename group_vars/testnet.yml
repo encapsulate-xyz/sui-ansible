@@ -17,11 +17,11 @@ sui:
       version: 1.87.0
     sui_chain_id: 69WiPg3DAQiwdxfncX6wYQ2siKwAe6L9BZthQea3JNMD
     validator_address: "0x9370070960e294f92c1427ed0a814605476155fa6452d59de16ed5c38c4746f9"
-    external_address: https://hashi.sui.testnet.encapsulate.xyz:443
+    external_address: https://hashi.sui.testnet.encapsulate.xyz
     sui_rpc: https://fullnode.testnet.sui.io:443
     bitcoin_chain_id: "00000008819873e925422c1ff0f99f7cc9bbb232af63a077a480a3633bee1ef6"
     bitcoin_rpc: http://ts.bitcoin.testnet.encapsulate.xyz:38332
     bitcoin_trusted_peers: "ts.bitcoin.testnet.encapsulate.xyz:38333"
     bitcoin_start_height_default: 100000
-    package_id: 0xfcea10cadbb553c4874201584abf68771592678952efd957b2e82c010c7f4360
-    hashi_object_id: 0x22c0ce66ce09df2dc88a31bd320d4177b766518b9b88010368cfbdcd724528f8
+    package_id: "0xfcea10cadbb553c4874201584abf68771592678952efd957b2e82c010c7f4360"
+    hashi_object_id: "0x22c0ce66ce09df2dc88a31bd320d4177b766518b9b88010368cfbdcd724528f8"
