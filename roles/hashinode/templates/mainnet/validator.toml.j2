@@ -50,9 +50,7 @@ db = "{{ hashinode_data_dir }}/db"
 # ── Backup (OpenPGP / Sequoia) ────────────────────────────────────────
 
 # Armored OpenPGP public certificate for encrypted backups
-# backup-pgp-cert = "{{ hashinode_backup_pgp_cert_path }}"
-backup-pgp-cert = '''
-{{ lookup('file', env + '/backup-cert.asc') }}'''
+backup-pgp-cert = "{{ hashinode_backup_pgp_cert_path }}"
 
 # Backup output directory
 backup-dir = "{{ hashinode_backup_dir }}"
