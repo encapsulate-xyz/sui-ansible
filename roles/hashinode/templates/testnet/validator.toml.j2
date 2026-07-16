@@ -50,9 +50,7 @@ db = "{{ hashinode_data_dir }}/db"
 # ── Backup (OpenPGP / Sequoia) ────────────────────────────────────────
 
 # Armored OpenPGP public certificate for encrypted backups
-# backup-pgp-cert = "{{ hashinode_backup_pgp_cert_path }}"
-backup-pgp-cert = '''
-{{ lookup('file', env + '/backup-cert.asc') }}'''
+backup-pgp-cert = "{{ hashinode_backup_pgp_cert_path }}"
 
 # Backup output directory
 backup-dir = "{{ hashinode_backup_dir }}"
@@ -69,3 +67,6 @@ hashi-object-id = "{{ sui.hashi.hashi_object_id }}"
 # RPC authentication: None, UserPass, or CookieFile
 [bitcoin-rpc-auth]
 UserPass = ["{{ vault.hashi.bitcoin_rpc_user }}", "{{ vault.hashi.bitcoin_rpc_password }}"]
+
+[metrics-push]
+push-url = "https://metrics-proxy.testnet.sui.io:8443/publish/metrics"
