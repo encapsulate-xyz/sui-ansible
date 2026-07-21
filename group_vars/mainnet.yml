@@ -12,9 +12,7 @@ sui:
     version: 027e13b2c14022b58067bd536c7e4f2afff72164
     external_address: dummy.sui.mainnet.encapsulate.xyz
   hashi:
-    version: main
-    rust:
-      version: 1.87.0
+    version: TBD
     sui_chain_id: 4btiuiMPvEENsttpZC7CZ53DruC3MAgfznDbASZ7DR6S
     validator_address: "0x01d03daf1dc3540b62014b0a6837f21ba72bf9218d6c4b3a2ee65465dde26ff7"
     external_address: https://hashi.sui.mainnet.encapsulate.xyz

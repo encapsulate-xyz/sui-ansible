@@ -1,9 +1,0 @@
----
-dependencies:
-  - role: encapsulate.ansible-rustup
-    vars:
-      rustup_default_version: "{{ sui.hashi.rust.version }}"
-      rustup_user_home: "{{ rust.root }}"
-      rustup_home_suffix: cargo
-      rustup_cargo_home_suffix: cargo
-      rustup_cargo_crates: []
