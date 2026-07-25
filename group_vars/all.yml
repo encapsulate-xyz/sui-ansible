@@ -62,7 +62,7 @@ sui:
         rpc: 90
         metrics: 91
   hashi:
-    source_url: https://releases.sui.io
+    source_url: https://github.com/MystenLabs/hashi/releases/download
     ports:
       server_listen_port: 8043
       metrics_port: 8053

@@ -10,7 +10,7 @@ hashinode_operator_key_file_name: operator-key.pem
 hashinode_backup_pgp_cert_file_name: backup-cert.asc
 
 # binary names
-hashinode_service_default_binary_name: hashi
+hashinode_service_default_binary_name: hashi-linux-amd64
 
 # Environment file names
 hashinode_environment_general_file_name: "{{ service_identifier }}.env"
