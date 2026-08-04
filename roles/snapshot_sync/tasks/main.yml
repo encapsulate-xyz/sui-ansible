@@ -42,6 +42,7 @@
       --network {{ env }}
       --path {{ snapshot_sync_authorities_data_dir }}
       --num-parallel-downloads 30
+      --snapshot-bucket-type=gcs
       --no-sign-request
   changed_when: false
 
