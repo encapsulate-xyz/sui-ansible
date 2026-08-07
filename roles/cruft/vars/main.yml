@@ -1,0 +1,4 @@
+---
+# maintains file name, binary names, and anything which is not a directory or path
+
+cruft_script_file_name: cleanup_jeprof.sh

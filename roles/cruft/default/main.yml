@@ -1,0 +1,15 @@
+---
+# maintains directories and paths
+cruft_home_dir: /opt/{{ service_identifier }}
+
+cruft_bin_dir: "{{ cruft_home_dir }}/bin"
+cruft_log_dir: "{{ cruft_home_dir }}/log"
+
+cruft_directories:
+  - "{{ cruft_home_dir }}"
+  - "{{ cruft_bin_dir }}"
+  - "{{ cruft_log_dir }}"
+
+cruft_log_file_path: "{{ cruft_log_dir }}/{{ service_identifier }}.log"
+
+cruft_script_file_path: "{{ cruft_bin_dir }}/{{ cruft_script_file_name }}"
