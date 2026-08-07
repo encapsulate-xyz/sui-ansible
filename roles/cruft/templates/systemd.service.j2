@@ -1,0 +1,16 @@
+[Unit]
+Description=Sui cruft service
+
+[Service]
+Type=oneshot
+# This service should be run with sui user to delete data.
+User=sui
+Group={{ service_identifier }}
+ExecStart=/bin/bash -c '{{ cruft_script_file_path }} 2>/dev/null'
+LimitNOFILE=65536
+MemoryMax=64G
+StandardOutput=append:{{ cruft_log_file_path }}
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target

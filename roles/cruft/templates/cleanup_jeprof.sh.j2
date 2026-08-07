@@ -1,0 +1,26 @@
+#!/bin/bash
+
+log() {
+  echo "[$(date +"%Y-%m-%d %H:%M:%S")] $1"
+}
+
+log "Starting cruft script"
+
+#!/bin/bash
+
+TARGET_DIR="/opt/sui/data/"
+JEPROF_DIR="/opt/sui/jeprof/"
+
+# Check if the node is actively writing data (files modified in the last 20 mins)
+NEW_FILES=$(find "$TARGET_DIR" -type f -mmin -20 -print -quit)
+
+if [ -n "$NEW_FILES" ]; then
+    # Node is active; delete heap dumps older than 60 minutes
+    find "$JEPROF_DIR" -type f -name "*.heap" -mmin +60 -delete 2>/dev/null
+else
+    echo "No new files detected in $TARGET_DIR. Skipping deletion of .heap files."
+fi
+
+log "Cruft script completed"
+
+exit 0

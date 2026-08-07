@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Sui cruft service every hour
+
+[Timer]
+OnCalendar=hourly
+Unit={{ service_identifier }}.service
+Persistent=true
+
+[Install]
+WantedBy=multi-user.target
