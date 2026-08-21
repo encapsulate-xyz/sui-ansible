@@ -37,12 +37,13 @@
 - name: Download sui formal snapshot using sui-tool
   ansible.builtin.command:
     cmd: >
-      {{ snapshot_sync_bin_dir }}/{{ snapshot_sync_tool_default_binary_name }} download-formal-snapshot --epoch 1224
+      {{ snapshot_sync_bin_dir }}/{{ snapshot_sync_tool_default_binary_name }} download-formal-snapshot --latest
       --genesis {{ snapshot_sync_genesis_file_path }}
       --network {{ env }}
       --path {{ snapshot_sync_authorities_data_dir }}
-      --num-parallel-downloads 30
+      --num-parallel-downloads 10
       --no-sign-request
+      --verbose
   changed_when: false
 
 - name: Set ownership of authorities data directory
