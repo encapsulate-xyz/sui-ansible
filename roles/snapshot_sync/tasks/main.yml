@@ -37,7 +37,7 @@
 - name: Download sui formal snapshot using sui-tool
   ansible.builtin.command:
     cmd: >
-      {{ snapshot_sync_bin_dir }}/{{ snapshot_sync_tool_default_binary_name }} download-formal-snapshot --latest
+      {{ snapshot_sync_bin_dir }}/{{ snapshot_sync_tool_default_binary_name }} download-formal-snapshot --epoch 1224
       --genesis {{ snapshot_sync_genesis_file_path }}
       --network {{ env }}
       --path {{ snapshot_sync_authorities_data_dir }}
