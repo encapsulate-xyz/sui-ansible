@@ -12,7 +12,7 @@ sui:
     version: 722ac4fcf4841346c91775f596c4ce23fb7fbd0f
     external_address:
   hashi:
-    version: testnet-7fad9d45309c1561fe6e4e78682d07b35076eca2
+    version: testnet-b3786bfadf16a75299cb411fb832b5fa0e33aa9f
     sui_chain_id: 69WiPg3DAQiwdxfncX6wYQ2siKwAe6L9BZthQea3JNMD
     validator_address: "0x9370070960e294f92c1427ed0a814605476155fa6452d59de16ed5c38c4746f9"
     external_address: https://hashi.sui.testnet.encapsulate.xyz
