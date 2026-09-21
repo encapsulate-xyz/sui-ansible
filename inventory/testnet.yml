@@ -14,3 +14,5 @@ all:
           type: fullnode
         ts.hashi.sui.testnet.encapsulate.xyz:
           type: hashi
+        100.93.178.12:
+          type: validator
