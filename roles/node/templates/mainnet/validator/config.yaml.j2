@@ -116,3 +116,15 @@ fork-recovery:
     280912463: BDzquViicDLApkiKtT4sUoh1LLpwga4gtTLGXYFH7m71
   transaction-overrides:
     BYdCnpYDmhsPBQmf7eWs62R48zZq3EZR6hvSazVf6KfR: 4N7g1cshmRWqifdP1Tg36DNmqi5mcz1BacG8mafC8DUH
+peer-deny-sync-config:
+  default-buckets:
+    - name: account-freeze
+      element-kinds:
+        - address
+      eligibility:
+        allowlist:
+          - pnZUgUY9085ZjxV6jm3D5V7AY+KV20yqZBz93NGBg1EfcNZLNsluP2A4WmxbyBTdC1ZswmLlz8SMwkrsG7UFnb2m/Sf6m3EKCo0jnYaS0tyiyqtKAgy5kiBY2Ar7rgMr
+          - tkYbm/p0Xhx2qdstnjoWdfCwyiwZKTRz9+W7zCv+IqzfIX1lMeRxOccA+yuh4NxBA4JbaT0RmL2vmiJuj0ky1uJgelaAJ/cVj+G9Nhcw4RLw2zf8bCHu/KjpPTmq9HtT
+      stake-threshold-percent: 34
+  broadcast-on-startup: true
+  broadcast-on-epoch-change: true
