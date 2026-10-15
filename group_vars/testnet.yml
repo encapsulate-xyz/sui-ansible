@@ -18,8 +18,8 @@ sui:
     external_address: https://hashi.sui.testnet.encapsulate.xyz
     sui_rpc: https://fullnode.testnet.sui.io:443
     bitcoin_chain_id: "00000008819873e925422c1ff0f99f7cc9bbb232af63a077a480a3633bee1ef6"
-    bitcoin_rpc: http://ts.bitcoin.testnet.encapsulate.xyz:38332
-    bitcoin_trusted_peers: "ts.bitcoin.testnet.encapsulate.xyz:38333"
+    bitcoin_rpc: http://127.0.0.1:38332
+    bitcoin_trusted_peers: "127.0.0.1:38333"
     bitcoin_start_height_default: 300000
     package_id: "0x5e0b99c31f691742acea5de4ca1bf53c398d5639fed6503a51ffe8035dc68485"
     hashi_object_id: "0x342e908043db6090558ed7766df95bfc3609881b2eac7edb5343dd5bb3ddd1bb"
