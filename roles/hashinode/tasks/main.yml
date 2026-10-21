@@ -41,14 +41,14 @@
       vars:
         vault_secret_source_path: "{{ project }}/{{ org }}/{{ type }}/{{ hashinode_tls_key_file_name }}"
         secret_destination_path: "{{ hashinode_tls_key_path }}"
-        secret_type: base64
+        secret_type: key
 
     - name: Fetch operator key and save
       ansible.builtin.include_tasks: tasks/get_and_save_vault_secret.yml
       vars:
         vault_secret_source_path: "{{ project }}/{{ org }}/{{ type }}/{{ hashinode_operator_key_file_name }}"
         secret_destination_path: "{{ hashinode_operator_key_path }}"
-        secret_type: base64
+        secret_type: key
 
 - name: Fetch the hashi binary
   ansible.builtin.get_url:

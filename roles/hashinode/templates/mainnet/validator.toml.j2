@@ -39,9 +39,6 @@ bitcoin-rpc = "{{ sui.hashi.bitcoin_rpc }}"
 # Trusted Bitcoin P2P peers for the embedded BIP-157 light client
 bitcoin-trusted-peers = ["{{ sui.hashi.bitcoin_trusted_peers }}"]
 
-# Block height the light client begins syncing from
-bitcoin-start-height = {{ hashi_bitcoin_start_height | default(sui.hashi.bitcoin_start_height_default) }}
-
 # ── Storage ───────────────────────────────────────────────────────────
 
 # Local database path
@@ -63,3 +60,6 @@ hashi-object-id = "{{ sui.hashi.hashi_object_id }}"
 # RPC authentication: None, UserPass, or CookieFile
 [bitcoin-rpc-auth]
 UserPass = ["{{ vault.hashi.bitcoin_rpc_user }}", "{{ vault.hashi.bitcoin_rpc_password }}"]
+
+[metrics-push]
+push-url = "https://metrics-proxy.mainnet.sui.io:8443/publish/metrics"
