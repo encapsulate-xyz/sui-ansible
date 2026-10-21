@@ -6,7 +6,7 @@ hashinode_config_file_name: validator.toml
 
 # key file names
 hashinode_tls_key_file_name: tls-private-key.pem
-hashinode_operator_key_file_name: operator-key.pem
+hashinode_operator_key_file_name: operator.key
 hashinode_backup_pgp_cert_file_name: backup-cert.asc
 
 # binary names
