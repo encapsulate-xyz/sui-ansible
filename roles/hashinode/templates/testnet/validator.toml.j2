@@ -37,7 +37,7 @@ bitcoin-chain-id = "{{ sui.hashi.bitcoin_chain_id }}"
 bitcoin-rpc = "{{ sui.hashi.bitcoin_rpc }}"
 
 # Trusted Bitcoin P2P peers for the embedded BIP-157 light client
-bitcoin-trusted-peers = ["{{ sui.hashi.bitcoin_trusted_peers }}"]
+bitcoin-trusted-peers = {{ sui.hashi.bitcoin_trusted_peers | to_json }}
 
 # Block height the light client begins syncing from
 bitcoin-start-height = {{ hashi_bitcoin_start_height | default(sui.hashi.bitcoin_start_height_default) }}
