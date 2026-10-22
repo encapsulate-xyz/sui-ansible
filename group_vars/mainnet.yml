@@ -16,12 +16,10 @@ sui:
     sui_chain_id: 4btiuiMPvEENsttpZC7CZ53DruC3MAgfznDbASZ7DR6S
     validator_address: "0x01d03daf1dc3540b62014b0a6837f21ba72bf9218d6c4b3a2ee65465dde26ff7"
     external_address: https://hashi.sui.mainnet.encapsulate.xyz
-    sui_rpc: https://fullnode.mainnet.sui.io:443
+    sui_rpc: "{{ vault.hashi.mainnet.sui_rpc_url }}"
     bitcoin_chain_id: "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
-    bitcoin_rpc: "{{ vault.hashi.mainnet.bitcoin_rpc_url }}"
+    bitcoin_rpc: http://127.0.0.1:38332
     bitcoin_trusted_peers:
-      - "176.9.50.120:8333"
-      - "65.109.125.160:8333"
-      - "168.119.10.30:8333"
+      - "127.0.0.1:38333"
     package_id: "0xd30fb3f8914efdbeb7b8e85fae1d65dc584b44a1281f66737b92bb9f03a59d06"
     hashi_object_id: "0x8d110642d9b5133bd661cda4873edf135ab6b91ff6918601015880874b950e5d"
