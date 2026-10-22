@@ -58,8 +58,8 @@ package-id = "{{ sui.hashi.package_id }}"
 hashi-object-id = "{{ sui.hashi.hashi_object_id }}"
 
 # RPC authentication: None, UserPass, or CookieFile
-# [bitcoin-rpc-auth]
-# UserPass = ["{{ vault.hashi.bitcoin_rpc_user }}", "{{ vault.hashi.bitcoin_rpc_password }}"]
+[bitcoin-rpc-auth]
+UserPass = ["{{ vault.hashi.bitcoin_rpc_user }}", "{{ vault.hashi.bitcoin_rpc_password }}"]
 
 [metrics-push]
 push-url = "https://metrics-proxy.mainnet.sui.io:8443/publish/metrics"
