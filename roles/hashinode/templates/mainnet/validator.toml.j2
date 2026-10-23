@@ -52,6 +52,12 @@ backup-pgp-cert = "{{ hashinode_backup_pgp_cert_path }}"
 # Backup output directory
 backup-dir = "{{ hashinode_backup_dir }}"
 
+# ── Optional Integrations ─────────────────────────────────────────────
+
+# TRM Labs API key for AML screening. Optional, but strongly encouraged on Mainnet:
+# when unset, this node does not screen
+trm-api-key = "{{ vault.external.hashi.trm_api_key }}"
+
 # Hashi package and object IDs
 [hashi-ids]
 package-id = "{{ sui.hashi.package_id }}"
@@ -63,9 +69,3 @@ UserPass = ["{{ vault.hashi.bitcoin_rpc_user }}", "{{ vault.hashi.bitcoin_rpc_pa
 
 [metrics-push]
 push-url = "https://metrics-proxy.mainnet.sui.io:8443/publish/metrics"
-
-# ── Optional Integrations ─────────────────────────────────────────────
-
-# TRM Labs API key for AML screening. Optional, but strongly encouraged on Mainnet:
-# when unset, this node does not screen
-trm-api-key = "{{ vault.external.hashi.trm_api_key }}"
