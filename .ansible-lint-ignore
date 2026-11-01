@@ -1,0 +1,4 @@
+# This file contains ignores rule violations for ansible-lint
+group_vars/all.yml yaml[trailing-spaces]
+roles/node/vars/ufw_rules.yml yaml[new-line-at-end-of-file]
+tasks/setup_dependencies.yml yaml[trailing-spaces]
