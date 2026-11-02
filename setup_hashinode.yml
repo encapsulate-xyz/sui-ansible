@@ -21,3 +21,14 @@
         - name: Include hashinode role
           ansible.builtin.include_role:
             name: hashinode
+            public: true
+
+  post_tasks:
+    - name: Verify hashi node
+      when: type in allowed_node_types
+      block:
+        - name: Include verify service task
+          ansible.builtin.include_tasks: tasks/verify_service.yml
+          vars:
+            log_file_path: "{{ hashinode_log_file_path }}"
+            health_url: "http://localhost:{{ sui.hashi.ports.metrics_port }}/health"

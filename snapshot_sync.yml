@@ -27,3 +27,14 @@
         - name: Include snapshot_sync role
           ansible.builtin.include_role:
             name: snapshot_sync
+            public: true
+
+  post_tasks:
+    - name: Verify node
+      when: type in allowed_node_types
+      block:
+        - name: Include verify service task
+          ansible.builtin.include_tasks: tasks/verify_service.yml
+          vars:
+            log_file_path: "{{ snapshot_sync_home_dir }}/log/{{ service_identifier }}.log"
+            health_url: "http://localhost:{{ metrics_port }}/metrics"
