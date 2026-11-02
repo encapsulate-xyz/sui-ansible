@@ -21,3 +21,16 @@
         - name: Include bridge role
           ansible.builtin.include_role:
             name: bridge
+            public: true
+
+  post_tasks:
+    - name: Verify bridge node
+      when: type in allowed_node_types
+      block:
+        - name: Include verify service task
+          ansible.builtin.include_tasks: tasks/verify_service.yml
+          vars:
+            log_file_path: "{{ bridge_log_file_path }}"
+            version_command: "{{ bridge_bin_dir }}/{{ service_identifier }} --version"
+            expected_version: "{{ sui.bridge.version[:12] }}"
+            health_url: "http://localhost:{{ sui.bridge.ports.server_listen_port }}/"
