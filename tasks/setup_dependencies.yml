@@ -1,7 +1,7 @@
 ---
 - name: Install apt packages
   ansible.builtin.apt:
-    name:   
+    name:
       - libjemalloc-dev
       - libpq-dev
       - git
